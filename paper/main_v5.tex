@@ -48,14 +48,15 @@ fixed-shape facility layout}
 \author[inst1,fn1]{Junhwan Ahn}
 \author[inst1,fn1]{Kunwoo Lee}
 \author[inst2]{Kyunghyun Lee\corref{cor1}}
-\author[inst1]{Yeoneung Kim\corref{cor1}}
+\author[inst3]{Yeoneung Kim\corref{cor1}}
 \hypersetup{pdfauthor={Junhwan Ahn, Kunwoo Lee, Kyunghyun Lee, Yeoneung Kim}}
 
 \affiliation[inst2]{organization={Department of Computer Engineering, Gachon University}, country={Republic of Korea}}
 \affiliation[inst1]{organization={Department of Applied Artificial Intelligence, Seoul National University of Science and Technology}, country={Republic of Korea}}
+\affiliation[inst3]{organization={Department of Industrial Engineering, Yonsei University}, country={Republic of Korea}}
 
 \fntext[fn1]{Equal contribution}
-\cortext[cor1]{Corresponding authors: kyunghyunlee@gachon.ac.kr, yeoneung@seoultech.ac.kr}
+\cortext[cor1]{Corresponding authors: kyunghyunlee@gachon.ac.kr, yeoneung@yonsei.ac.kr}
 
 \begin{abstract}
 Dense fixed-shape facility layout is difficult because a legal placement can
@@ -318,8 +319,8 @@ Generative AI tools assisted implementation, language editing and
 consistency checks within the manuscript. Every numerical result in the paper was
 produced by the archived executable scripts; no synthetic observations replaced
 an experiment, and the authors ran the code, inspected the outputs and retained
-responsibility for every analytical and editorial decision. The required
-declaration before the references names the tools used.
+responsibility for every analytical and editorial decision. The declaration in
+the Acknowledgements names the tools used.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \iflegacydetails
@@ -2353,11 +2354,17 @@ objective.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Acknowledgements}
-This research was supported by Seoul National University of Science and
-Technology.
 Yeoneung Kim is supported by the National Research Foundation of Korea (NRF)
 grant funded by the Korea government (MSIT) (RS-2023-00219980,
 RS-2026-25490291) and Yonsei University.
+
+\paragraph{Declaration of generative AI and AI-assisted technologies in the
+manuscript preparation process}
+During the preparation of this work, the authors used OpenAI Codex and Anthropic
+Claude for language editing, implementation assistance, and checking of
+numerical consistency within the manuscript. After using these tools, the
+authors reviewed and edited the content as needed and take full responsibility
+for the content of the publication.
 
 \section*{Data and code availability}
 A self contained reproducibility archive (\code{code\_submission}) containing
@@ -2503,14 +2510,6 @@ checkpoint & role & budget & min & deviations \\
 
 %% Sections S1 to S4 (zero shot transfer, quality and diversity, amortized cost,
 %% action granularity) moved to the Online Supplement (supplement_v5.tex).
-
-\section*{Declaration of generative AI and AI assisted technologies in the
-manuscript preparation process}
-During preparation of this work, the authors used OpenAI Codex and Anthropic
-Claude for language editing, implementation assistance, and checking of
-numerical consistency within the manuscript. The authors reviewed and edited all
-output produced with tool assistance, ran and checked the experimental code themselves, and take
-full responsibility for the content of the publication.
 
 \bibliographystyle{elsarticle-harv}
 \bibliography{ref}
