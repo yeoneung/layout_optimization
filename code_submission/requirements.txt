@@ -1,0 +1,6 @@
+# main environment (everything except CP-SAT)
+numpy==2.2.5
+scipy==1.15.3
+torch==2.7.1+cu118
+matplotlib==3.10.9
+# Python 3.10.18

@@ -1,0 +1,436 @@
+{
+ "rows": [
+  {
+   "suite": "full",
+   "n": 32,
+   "fill": 0.85,
+   "generator": "blf area (paper baseline)",
+   "coverage": 0.95,
+   "ms_per_instance": 2.453947067260742
+  },
+  {
+   "suite": "full",
+   "n": 32,
+   "fill": 0.85,
+   "generator": "blf height",
+   "coverage": 1.0,
+   "ms_per_instance": 2.4500608444213867
+  },
+  {
+   "suite": "full",
+   "n": 32,
+   "fill": 0.85,
+   "generator": "blf width",
+   "coverage": 0.3,
+   "ms_per_instance": 1.4499902725219727
+  },
+  {
+   "suite": "full",
+   "n": 32,
+   "fill": 0.85,
+   "generator": "blf perimeter",
+   "coverage": 1.0,
+   "ms_per_instance": 2.4269819259643555
+  },
+  {
+   "suite": "full",
+   "n": 32,
+   "fill": 0.85,
+   "generator": "best contact, area order",
+   "coverage": 0.95,
+   "ms_per_instance": 4.403901100158691
+  },
+  {
+   "suite": "full",
+   "n": 32,
+   "fill": 0.85,
+   "generator": "randomized restarts x128",
+   "coverage": 1.0,
+   "ms_per_instance": 3.6264657974243164
+  },
+  {
+   "suite": "full",
+   "n": 32,
+   "fill": 0.9,
+   "generator": "blf area (paper baseline)",
+   "coverage": 0.65,
+   "ms_per_instance": 2.0271658897399902
+  },
+  {
+   "suite": "full",
+   "n": 32,
+   "fill": 0.9,
+   "generator": "blf height",
+   "coverage": 1.0,
+   "ms_per_instance": 2.4771690368652344
+  },
+  {
+   "suite": "full",
+   "n": 32,
+   "fill": 0.9,
+   "generator": "blf width",
+   "coverage": 0.05,
+   "ms_per_instance": 1.0500192642211914
+  },
+  {
+   "suite": "full",
+   "n": 32,
+   "fill": 0.9,
+   "generator": "blf perimeter",
+   "coverage": 0.85,
+   "ms_per_instance": 2.2270798683166504
+  },
+  {
+   "suite": "full",
+   "n": 32,
+   "fill": 0.9,
+   "generator": "best contact, area order",
+   "coverage": 1.0,
+   "ms_per_instance": 4.932856559753418
+  },
+  {
+   "suite": "full",
+   "n": 32,
+   "fill": 0.9,
+   "generator": "randomized restarts x128",
+   "coverage": 0.95,
+   "ms_per_instance": 23.312580585479736
+  },
+  {
+   "suite": "full",
+   "n": 32,
+   "fill": 0.95,
+   "generator": "blf area (paper baseline)",
+   "coverage": 0.05,
+   "ms_per_instance": 1.1036038398742676
+  },
+  {
+   "suite": "full",
+   "n": 32,
+   "fill": 0.95,
+   "generator": "blf height",
+   "coverage": 0.4,
+   "ms_per_instance": 1.6518354415893555
+  },
+  {
+   "suite": "full",
+   "n": 32,
+   "fill": 0.95,
+   "generator": "blf width",
+   "coverage": 0.0,
+   "ms_per_instance": 0.9007453918457031
+  },
+  {
+   "suite": "full",
+   "n": 32,
+   "fill": 0.95,
+   "generator": "blf perimeter",
+   "coverage": 0.2,
+   "ms_per_instance": 1.3756632804870605
+  },
+  {
+   "suite": "full",
+   "n": 32,
+   "fill": 0.95,
+   "generator": "best contact, area order",
+   "coverage": 0.95,
+   "ms_per_instance": 4.50512170791626
+  },
+  {
+   "suite": "full",
+   "n": 32,
+   "fill": 0.95,
+   "generator": "randomized restarts x128",
+   "coverage": 0.05,
+   "ms_per_instance": 94.21107769012451
+  },
+  {
+   "suite": "full",
+   "n": 64,
+   "fill": 0.8,
+   "generator": "blf area (paper baseline)",
+   "coverage": 0.95,
+   "ms_per_instance": 4.702937602996826
+  },
+  {
+   "suite": "full",
+   "n": 64,
+   "fill": 0.8,
+   "generator": "blf height",
+   "coverage": 1.0,
+   "ms_per_instance": 5.13070821762085
+  },
+  {
+   "suite": "full",
+   "n": 64,
+   "fill": 0.8,
+   "generator": "blf width",
+   "coverage": 0.55,
+   "ms_per_instance": 3.6269068717956543
+  },
+  {
+   "suite": "full",
+   "n": 64,
+   "fill": 0.8,
+   "generator": "blf perimeter",
+   "coverage": 1.0,
+   "ms_per_instance": 5.102181434631348
+  },
+  {
+   "suite": "full",
+   "n": 64,
+   "fill": 0.8,
+   "generator": "best contact, area order",
+   "coverage": 1.0,
+   "ms_per_instance": 9.25455093383789
+  },
+  {
+   "suite": "full",
+   "n": 64,
+   "fill": 0.8,
+   "generator": "randomized restarts x128",
+   "coverage": 1.0,
+   "ms_per_instance": 7.256138324737549
+  },
+  {
+   "suite": "full",
+   "n": 64,
+   "fill": 0.95,
+   "generator": "blf area (paper baseline)",
+   "coverage": 0.45,
+   "ms_per_instance": 3.4517645835876465
+  },
+  {
+   "suite": "full",
+   "n": 64,
+   "fill": 0.95,
+   "generator": "blf height",
+   "coverage": 0.75,
+   "ms_per_instance": 4.301941394805908
+  },
+  {
+   "suite": "full",
+   "n": 64,
+   "fill": 0.95,
+   "generator": "blf width",
+   "coverage": 0.0,
+   "ms_per_instance": 1.9000053405761719
+  },
+  {
+   "suite": "full",
+   "n": 64,
+   "fill": 0.95,
+   "generator": "blf perimeter",
+   "coverage": 0.25,
+   "ms_per_instance": 2.9999852180480957
+  },
+  {
+   "suite": "full",
+   "n": 64,
+   "fill": 0.95,
+   "generator": "best contact, area order",
+   "coverage": 1.0,
+   "ms_per_instance": 9.17896032333374
+  },
+  {
+   "suite": "full",
+   "n": 64,
+   "fill": 0.95,
+   "generator": "randomized restarts x128",
+   "coverage": 0.45,
+   "ms_per_instance": 111.11510992050171
+  },
+  {
+   "suite": "dense",
+   "n": 32,
+   "fill": 0.9,
+   "generator": "blf area (paper baseline)",
+   "coverage": 0.78,
+   "ms_per_instance": 2.1259045600891113
+  },
+  {
+   "suite": "dense",
+   "n": 32,
+   "fill": 0.9,
+   "generator": "blf height",
+   "coverage": 0.95,
+   "ms_per_instance": 2.3955154418945312
+  },
+  {
+   "suite": "dense",
+   "n": 32,
+   "fill": 0.9,
+   "generator": "blf width",
+   "coverage": 0.09,
+   "ms_per_instance": 1.0802388191223145
+  },
+  {
+   "suite": "dense",
+   "n": 32,
+   "fill": 0.9,
+   "generator": "blf perimeter",
+   "coverage": 0.84,
+   "ms_per_instance": 2.2211742401123047
+  },
+  {
+   "suite": "dense",
+   "n": 32,
+   "fill": 0.9,
+   "generator": "best contact, area order",
+   "coverage": 0.98,
+   "ms_per_instance": 4.586915969848633
+  },
+  {
+   "suite": "dense",
+   "n": 32,
+   "fill": 0.9,
+   "generator": "randomized restarts x128",
+   "coverage": 0.9,
+   "ms_per_instance": 17.100887298583984
+  },
+  {
+   "suite": "dense",
+   "n": 32,
+   "fill": 0.95,
+   "generator": "blf area (paper baseline)",
+   "coverage": 0.09,
+   "ms_per_instance": 1.0701441764831543
+  },
+  {
+   "suite": "dense",
+   "n": 32,
+   "fill": 0.95,
+   "generator": "blf height",
+   "coverage": 0.31,
+   "ms_per_instance": 1.5804576873779297
+  },
+  {
+   "suite": "dense",
+   "n": 32,
+   "fill": 0.95,
+   "generator": "blf width",
+   "coverage": 0.0,
+   "ms_per_instance": 0.8850884437561035
+  },
+  {
+   "suite": "dense",
+   "n": 32,
+   "fill": 0.95,
+   "generator": "blf perimeter",
+   "coverage": 0.15,
+   "ms_per_instance": 1.4557504653930664
+  },
+  {
+   "suite": "dense",
+   "n": 32,
+   "fill": 0.95,
+   "generator": "best contact, area order",
+   "coverage": 0.96,
+   "ms_per_instance": 4.919111728668213
+  },
+  {
+   "suite": "dense",
+   "n": 32,
+   "fill": 0.95,
+   "generator": "randomized restarts x128",
+   "coverage": 0.09,
+   "ms_per_instance": 77.33850717544556
+  },
+  {
+   "suite": "dense",
+   "n": 64,
+   "fill": 0.9,
+   "generator": "blf area (paper baseline)",
+   "coverage": 0.99,
+   "ms_per_instance": 4.90452766418457
+  },
+  {
+   "suite": "dense",
+   "n": 64,
+   "fill": 0.9,
+   "generator": "blf height",
+   "coverage": 1.0,
+   "ms_per_instance": 4.925503730773926
+  },
+  {
+   "suite": "dense",
+   "n": 64,
+   "fill": 0.9,
+   "generator": "blf width",
+   "coverage": 0.11,
+   "ms_per_instance": 2.396881580352783
+  },
+  {
+   "suite": "dense",
+   "n": 64,
+   "fill": 0.9,
+   "generator": "blf perimeter",
+   "coverage": 1.0,
+   "ms_per_instance": 5.275247097015381
+  },
+  {
+   "suite": "dense",
+   "n": 64,
+   "fill": 0.9,
+   "generator": "best contact, area order",
+   "coverage": 1.0,
+   "ms_per_instance": 9.443159103393555
+  },
+  {
+   "suite": "dense",
+   "n": 64,
+   "fill": 0.9,
+   "generator": "randomized restarts x128",
+   "coverage": 1.0,
+   "ms_per_instance": 7.9123640060424805
+  },
+  {
+   "suite": "dense",
+   "n": 64,
+   "fill": 0.95,
+   "generator": "blf area (paper baseline)",
+   "coverage": 0.28,
+   "ms_per_instance": 2.9829907417297363
+  },
+  {
+   "suite": "dense",
+   "n": 64,
+   "fill": 0.95,
+   "generator": "blf height",
+   "coverage": 0.69,
+   "ms_per_instance": 4.183287620544434
+  },
+  {
+   "suite": "dense",
+   "n": 64,
+   "fill": 0.95,
+   "generator": "blf width",
+   "coverage": 0.0,
+   "ms_per_instance": 1.9103646278381348
+  },
+  {
+   "suite": "dense",
+   "n": 64,
+   "fill": 0.95,
+   "generator": "blf perimeter",
+   "coverage": 0.41,
+   "ms_per_instance": 3.3862781524658203
+  },
+  {
+   "suite": "dense",
+   "n": 64,
+   "fill": 0.95,
+   "generator": "best contact, area order",
+   "coverage": 1.0,
+   "ms_per_instance": 9.230844974517822
+  },
+  {
+   "suite": "dense",
+   "n": 64,
+   "fill": 0.95,
+   "generator": "randomized restarts x128",
+   "coverage": 0.28,
+   "ms_per_instance": 141.01187229156494
+  }
+ ]
+}

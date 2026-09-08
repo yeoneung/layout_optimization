@@ -1,0 +1,12 @@
+{
+ "source": "completion_comparison_dense50_v5.json",
+ "runs": 2940,
+ "stored_budget_layouts": 8820,
+ "trace_events": 277707,
+ "largest_objective_recheck_error": 0.0,
+ "largest_budget_trace_error": 0.0,
+ "largest_admitted_event_s": 0.9999981999999932,
+ "event_time_rule": "candidate admitted only after verification and scoring finish by budget",
+ "objective_convention": "feasible J_beta includes no-overlap bonus beta_max",
+ "status": "passed"
+}
