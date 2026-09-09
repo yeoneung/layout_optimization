@@ -32,15 +32,22 @@ Three environments were used; exact versions are recorded in the requirements
 files and every new comparison JSON also carries its runtime metadata.
 
 * main (`requirements.txt`): Python 3.10.18 with numpy 2.2.5, scipy 1.15.3,
-  torch 2.7.1+cu118, matplotlib 3.10.9. Everything except CP-SAT runs here.
+  torch 2.7.1+cu118, matplotlib 3.10.9 and Pillow 11.0.0. Everything except
+  CP-SAT runs here.
   A GPU is only needed to retrain policies; evaluation of the shipped
   checkpoints runs on CPU, and a CPU-only torch wheel of the same version
   works for that purpose.
 * exact (`requirements_exact.txt`): Python 3.11.15 with ortools 9.15, for the
   CP-SAT optimality study and the CP-SAT decision packer only.
 * completion (`requirements_completion.txt`): Python 3.7.16 with numpy 1.21.5,
-  for the v5 B0--B3/B2S/M0/R0/M1 comparison. These runs used one AMD Ryzen 7 9700X
-  CPU process on Windows 10; no learned model or GPU is used.
+  for the primary B0--B3/B2S/M0/R0/M1 comparison. These runs used one AMD
+  Ryzen 7 9700X CPU process on Windows 10; no learned model or GPU is used.
+
+For the recorded CUDA 11.8 environment, run `python -m pip install -r
+requirements.txt`; the file includes the PyTorch CUDA wheel index. For CPU-only
+evaluation, install the non-torch packages from that file and then run
+`python -m pip install torch==2.7.1 --index-url
+https://download.pytorch.org/whl/cpu`.
 
 All scripts are run from `rl_layout/v2/` as working directory, e.g.
 `python run_certified_study.py`.
@@ -51,26 +58,12 @@ Main text:
 
 | Item | Script(s) | Result file |
 |---|---|---|
-| Table 1 (feasible volume) | `feasible_volume.py` | `feasible_volume.json` |
-| Table 2 / Fig. (improvement-MDP ablation) | `train_improve.py`, `compare_main.py` | `compare_improve.json`, `compare_comb_high.json` |
-| Table 3 (certificates compared) + certificate figure | `run_constructive_search.py`, `fig_certificate.py` | `constr_search.json` |
-| Table 4 (certified coverage sweep), dense confirmation | `run_certified_study.py`, `analyze_certified_study.py` | `certified_study_v3.json`, `certified_study_summary_v3.json` |
-| Table 5 (certified return vs. initial witness) | `witness_gap.py` | `witness_gap_v3.json` |
-| Dense confirmation from the same initial layout | `run_completion_comparison.py`, `merge_completion_results.py`, `analyze_completion_comparison.py`, `audit_completion_results.py` | `completion_comparison_dense50_v5.json`, `completion_comparison_dense50_summary_v5.json`, `completion_comparison_dense50_audit_v5.json` |
-| Anytime and initialization figure for the main comparison | `fig_completion_comparison.py` | `figs_v2/fig_completion_comparison.pdf` |
-| Density boundary from the same initial layout | same scripts, disjoint tag | `completion_comparison_boundary80_v5.json`, `completion_comparison_boundary80_summary_v5.json`, `completion_comparison_boundary80_audit_v5.json` |
-| Partial witness repair and controls B0--B3/B2S/M0/R0/M1 | `completion_search.py` | recorded in the two comparison files above |
-| Witness-generator coverage frontier | `witness_frontier.py`; `exact_pack.py` (exact env, CP-SAT decision packing) | `witness_frontier.json`, `exact_pack.json` |
-| Certified decoder with the exact-marginal selector | `certified_greedy.py` | `certified_greedy_v3.json` |
-| Certified decoder on the best-contact witness | `certified_contact.py` | `certified_contact.json` |
-| Main suite results, paired tests | `run_bench.py`, `run_bench_policy.py`, `run_bench_meta.py` (tabu/GA), `bench_stats.py`, `bench_report.py` | `bench_test_merged.json`, `bench_val.json` |
-| Density sweep table + figure | same as above on the density cells | `bench_density_merged.json`, `bench_density64.json` |
-| Small-instance CP-SAT audit | `export_exact.py`, `exact_cpsat.py`, `audit_exact_results.py` (exact env), `run_exact_cells.py`, `exact_report.py` | `exact_specs_full.json`, `exact_results_full.json`, `exact_results_audited.json`, `exact_cells_heur.json` |
-| Large-n scaling | `run_bigbench.py` | `bigbench.json`, `bigbench30.json` |
-| QAPLIB control | `qap_bench.py` (verified by `test_qap.py`) | `qap_results.json` |
-| MCNC/GSRC control | `run_fp.py` (`fp_core.py`, `fp_construct.py`, `test_fp_core.py`) | `fp_results.json` |
-| Learned predictive-filter failure | `viability_data.py`, `viability_net.py`, `run_viability.py`, `run_learned_cert.py` | `viability_train.npz` (instance-group IDs included), `runs/viability_net.pt` (split/threshold metadata), `viability_area.json`, `learned_cert.json` |
-| All composite figures | `figures.py` | reads the JSONs above, writes `figs_v2/` |
+| Table 1 (methods B0--B3/B2S/M0/R0/M1) | `completion_search.py` | method definitions used in the two comparison files below |
+| Table 2 (datasets and policy coverage) | `bench.py`, training and evaluation scripts listed below | generated suite seeds, checkpoints and result files throughout the archive |
+| Table 3 (dense matched-time results) | `run_completion_comparison.py`, `merge_completion_results.py`, `analyze_completion_comparison.py`, `audit_completion_results.py` | `completion_comparison_dense50_v5.json`, `completion_comparison_dense50_summary_v5.json`, `completion_comparison_dense50_audit_v5.json` |
+| Figure 1 (anytime quality and initialization) | `fig_completion_comparison.py` | `figs_v2/fig_completion_comparison.pdf` |
+| Table 4 (fill 0.90 boundary) | same comparison and audit scripts, disjoint tag | `completion_comparison_boundary80_v5.json`, `completion_comparison_boundary80_summary_v5.json`, `completion_comparison_boundary80_audit_v5.json` |
+| Appendix Table B.5 (training runs) | `train_construct.py`, `train_improve.py`, `viability_net.py` | checkpoints and histories in `runs/` |
 
 Online Supplement:
 
@@ -85,6 +78,17 @@ Online Supplement:
 | S7 MCNC/GSRC conversion | `run_fp.py` | `fp_results.json` |
 | S8 larger-instance feasibility | `run_bigbench.py` | `bigbench.json`, `bigbench30.json` |
 | S9 complete matched-time results | `run_completion_comparison.py`, `analyze_completion_comparison.py`, `audit_completion_results.py` | the two v5 comparison, summary and audit files above |
+| S10 feasible volume | `feasible_volume.py` | `feasible_volume.json` |
+| S10 improvement-MDP ablation | `train_improve.py`, `compare_main.py` | `compare_improve.json`, `compare_comb_high.json` |
+| S10 certificate comparisons and coverage | `run_constructive_search.py`, `run_certified_study.py`, `analyze_certified_study.py`, `witness_gap.py`, `witness_frontier.py`, `exact_pack.py` (exact env) | `constr_search.json`, `certified_study_v3.json`, `certified_study_summary_v3.json`, `witness_gap_v3.json`, `witness_frontier.json`, `exact_pack.json` |
+| S10 certified selectors and best-contact witness | `certified_greedy.py`, `certified_contact.py` | `certified_greedy_v3.json`, `certified_contact.json` |
+| S10 main/density suites and paired tests | `run_bench.py`, `run_bench_policy.py`, `run_bench_meta.py`, `bench_stats.py`, `bench_report.py` | `bench_test_merged.json`, `bench_val.json`, `bench_density_merged.json`, `bench_density64.json` |
+| S10 small-instance CP-SAT audit | `export_exact.py`, `exact_cpsat.py`, `audit_exact_results.py` (exact env), `run_exact_cells.py`, `exact_report.py` | `exact_specs_full.json`, `exact_results_full.json`, `exact_results_audited.json`, `exact_cells_heur.json` |
+| S10 QAPLIB and learned-filter diagnostics | `qap_bench.py`, `viability_data.py`, `viability_net.py`, `run_viability.py`, `run_learned_cert.py` | `qap_results.json`, `viability_train.npz`, `runs/viability_net.pt`, `viability_area.json`, `learned_cert.json` |
+
+`figures.py` reads the archived JSON files and writes the composite figures to
+`figs_v2/`. The paper repository stores its submission copies under
+`paper/figs/`.
 
 Training (only needed to regenerate checkpoints): `train_construct.py`
 produced `runs/S_dord_seed{1,2}.pt` (n=32) and `runs/S64_seed{1,2}.pt` (n=64);

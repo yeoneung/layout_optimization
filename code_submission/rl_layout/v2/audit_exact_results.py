@@ -61,7 +61,7 @@ def main():
         audited.append(row)
 
     metadata = {
-        "objective": "real-valued J_beta in main_v5",
+        "objective": "real-valued J_beta in the main manuscript",
         "integer_scale": 10_000,
         "bound_transfer": "real upper bound = quantized CP-SAT bound + delta",
         "delta": "number of rounded active terms divided by twice the scale",

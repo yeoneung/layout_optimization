@@ -17,7 +17,7 @@
 \usepackage{algpseudocode}
 \newcommand{\code}[1]{\texttt{#1}}
 
-\graphicspath{{figs_v2/}}
+\graphicspath{{figs/}}
 
 \newtheorem{prop}{Proposition}
 \newtheorem{thm}{Theorem}
@@ -60,40 +60,29 @@ fixed-shape facility layout}
 
 \begin{abstract}
 Dense fixed-shape facility layout is difficult because a legal placement can
-leave no completion for the remaining facilities. Suppose, however, that a
-verified feasible layout is already available. Then any search can retain it and
-verify candidates only at the end. Feasible return alone is therefore not an
-algorithmic advantage. We study a stricter question: under the same initial
-layout and the same time budget, when does maintaining a compatible completion
-improve solution quality? Our method keeps a completion witness and repairs only
-the witness facilities displaced by a proposed placement. All complete layouts
-are checked by a verifier that is independent of scoring and search. We compare
-the method with final-verification restarts, two multi-facility destroy and
-repair controls, fortified rollout, full completion regeneration, and witness
-reuse without repair. The main confirmation has
-200 new instances at fill 0.95, with 32 or 64 facilities, from guillotine and
-nonslicing geometry families. The common best-contact initializer succeeds on
-196 instances. At a 1.0 second post-initialization cutoff, partial repair improves
-the initial objective by 7.98\% to 9.65\%, compared with 1.72\% to 4.44\% for
+leave no completion for the remaining facilities. Suppose a verified feasible
+layout is already available. Any search can retain it and verify candidates only
+at the end, so feasible return alone is not an algorithmic advantage. We ask a
+stricter question: under the same initial layout and time budget, when does
+maintaining a compatible completion improve solution quality? Our method keeps a
+completion witness and repairs only the witness facilities displaced by a
+proposed placement. All complete layouts are checked by a verifier independent
+of scoring and search. We compare the method with final-verification restarts,
+two multi-facility destroy and repair controls, fortified rollout, full
+completion regeneration, and witness reuse without repair. The main confirmation
+uses 200 instances at fill 0.95 with 32 or 64 facilities from guillotine and
+nonslicing geometry families. The common initializer succeeds on 196 instances.
+At a 1.0 second post-initialization cutoff, partial repair improves the initial
+objective by 7.98\% to 9.65\%, compared with 1.72\% to 4.44\% for
 final-verification search. The pooled difference is 5.93 percentage points
 (95\% paired bootstrap interval 4.99 to 6.88). It is also 6.39 points above
 reuse without repair and 7.02 points above spatial destroy and repair. The
 interval against full completion regeneration includes zero. At fill 0.90,
-partial repair is 1.87 points below full regeneration. Thus its advantage over
-the direct controls is confined to a dense, short-budget regime. We use the
-classical feasible-continuation argument of fortified rollout. Our contribution
-is the layout-specific repair mechanism and its matched-time evaluation, not a
-new general feasibility principle.
+partial repair is 1.87 points below full regeneration. Thus its advantage is
+confined to a dense, short-budget regime. The contribution is the layout-specific
+repair mechanism and its matched-time evaluation, not a new general feasibility
+principle.
 \end{abstract}
-
-\begin{highlights}
-\item Every method starts from the same verified feasible layout and keeps it.
-\item Partial repair reuses witness geometry after a proposed placement.
-\item It improves matched-time quality at fill 0.95 in two geometry families.
-\item A reuse-only control isolates the additional effect of partial repair.
-\item A small-destroy control checks whether repair size alone explains the gain.
-\item No advantage over full regeneration is established at the one-second cutoff.
-\end{highlights}
 
 \begin{keyword}
 Facility layout \sep Completion repair \sep Fortified rollout \sep
@@ -287,9 +276,8 @@ where $c_{ij}$ rewards proximity between facilities that prefer it
 boundary bonus when facility $i$ is flush against a wall it prefers. Distances
 are center to center with each rectangle's directional radius removed, and are
 normalized per pair by the largest separation the plate permits, so $c_{ij}$ is
-scale free. The full expressions are those of the legacy RoomLayoutRL
-implementation \citep{RoomLayoutRL2026} and
-are reproduced in \ref{app:objective}.
+scale free. The full expressions are reproduced in \ref{app:objective}, and the
+legacy implementation is included in the reproducibility archive.
 
 The constant $\beta_{\max}$ is the no-overlap bonus used by the evaluator. It
 does not change rankings or raw paired differences within an instance, but it
@@ -315,12 +303,12 @@ $3\,270.0$ to within $0.1$, obtaining $3\,269.9$. Comparisons here are therefore
 about objective drift.
 
 \paragraph{AI assisted workflow}
-Generative AI tools assisted implementation, language editing and
-consistency checks within the manuscript. Every numerical result in the paper was
-produced by the archived executable scripts; no synthetic observations replaced
-an experiment, and the authors ran the code, inspected the outputs and retained
-responsibility for every analytical and editorial decision. The declaration in
-the Acknowledgements names the tools used.
+OpenAI Codex and Anthropic Claude assisted implementation, language editing and
+consistency checks. They were not used to generate experimental observations or
+to replace an experiment. Every numerical result was produced by the archived
+executable scripts. The authors specified the algorithms and protocols, ran the
+code, inspected the outputs and retained responsibility for every analytical and
+editorial decision.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \iflegacydetails
@@ -1391,9 +1379,9 @@ types are drawn independently of geometry.
 Train, validation and test draw from disjoint generator seed ranges, so an
 instance evaluated at test time cannot have been optimized in training. Instance
 identity is $(\text{family},\text{split},n,f,\text{index})$ and is reproducible
-from the seed. The earlier policy confirmation is tagged
-\texttt{dense100\_v3}. The new comparison families use separate v4 tags;
-they are disjoint from training, validation and all earlier test cells.
+from the seed. The earlier policy confirmation and the new comparison families
+use separate archived tags. They are disjoint from training, validation and all
+earlier test cells.
 
 \subsection{Primary comparison protocol}
 The dense study crosses two geometry families and $n\in\{32,64\}$ at fill
@@ -1521,8 +1509,8 @@ only if its independent verification and objective evaluation both finish by
 the cutoff. Work already in flight may finish later, but that candidate is
 discarded; the largest function-return overrun was 9.8 ms and the latest admitted
 event was at 0.999998 s. Measured initialization time is reported separately and
-charged equally to every method. The v5
-comparison used one AMD Ryzen 7 9700X CPU process on Windows 10, with Python
+charged equally to every method. The primary comparison used one AMD Ryzen 7
+9700X CPU process on Windows 10, with Python
 3.7.16 and NumPy 1.21.5; the exact metadata are stored with the result file.
 The CP-SAT audit used OR-Tools 9.15 in the separate exact environment.
 
@@ -1925,7 +1913,7 @@ GA 45\,000, lattice                 &  0/20 & 0.00 & $[0.00,0.17]$ \\
 \paragraph{Disjoint confirmation with 100 instances}
 The preceding rates use $20$ instances per cell. Before inspecting any new
 outcome, we froze both policy checkpoints, both decoders and their budgets, then
-generated the disjoint \texttt{dense100\_v3} family. Table~\ref{tab:denseconfirm}
+generated the disjoint archived dense-confirmation family. Table~\ref{tab:denseconfirm}
 reports all four prespecified cells. Heuristic rows are empirical feasibility
 among the $100$ emitted candidates; selective rows are coverage. Thus a value in
 one kind of row must not be read as the other.
@@ -2355,23 +2343,15 @@ objective.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Acknowledgements}
 Yeoneung Kim is supported by the National Research Foundation of Korea (NRF)
-grant funded by the Korea government (MSIT) (RS-2023-00219980,
+grants funded by the Korea government (MSIT) (RS-2023-00219980,
 RS-2026-25490291) and Yonsei University.
 
-\paragraph{Declaration of generative AI and AI-assisted technologies in the
-manuscript preparation process}
-During the preparation of this work, the authors used OpenAI Codex and Anthropic
-Claude for language editing, implementation assistance, and checking of
-numerical consistency within the manuscript. After using these tools, the
-authors reviewed and edited the content as needed and take full responsibility
-for the content of the publication.
-
 \section*{Data and code availability}
-A self contained reproducibility archive (\code{code\_submission}) containing
-the v5 code, trained policies, benchmark instances, result files and
+A self-contained reproducibility archive (\code{code\_submission}) containing
+the code, trained policies, benchmark instances, result files and
 figure/table scripts accompanies this submission as supplementary material; it
 includes a mapping from scripts to tables and the verification entry points. The
-same versioned archive is publicly available at
+same archive is publicly available at
 \url{https://github.com/yeoneung/layout_optimization}.
 
 \section*{Supplementary material}
@@ -2508,7 +2488,15 @@ checkpoint & role & budget & min & deviations \\
 \end{table}
 
 %% Sections S1 to S4 (zero shot transfer, quality and diversity, amortized cost,
-%% action granularity) moved to the Online Supplement (supplement_v5.tex).
+%% action granularity) moved to the Online Supplement (supplement.tex).
+
+\section*{Declaration of generative AI and AI-assisted technologies in the
+manuscript preparation process}
+During the preparation of this work, the authors used OpenAI Codex and Anthropic
+Claude for language editing, implementation assistance, and checking of
+numerical consistency. After using these tools, the authors reviewed and edited
+the content as needed and take full responsibility for the content of the
+publication.
 
 \bibliographystyle{elsarticle-harv}
 \bibliography{ref}

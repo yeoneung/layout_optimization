@@ -1,6 +1,8 @@
 # main environment (everything except CP-SAT)
+--extra-index-url https://download.pytorch.org/whl/cu118
 numpy==2.2.5
 scipy==1.15.3
 torch==2.7.1+cu118
 matplotlib==3.10.9
+Pillow==11.0.0
 # Python 3.10.18
