@@ -1350,9 +1350,10 @@ nonslicing under a definition that allows dead space.
 For both families, the lower-left corners of the source slots give a feasible
 witness. Its boundary and overlap conditions are independently verified before
 any solver is run, but the coordinates are withheld from every method. The
-implementation is in \code{rl\_layout/v2/bench.py}, the structural checks are in
-\code{rl\_layout/v2/test\_bench\_families.py}, and the experimental entry point is
-\code{rl\_layout/v2/run\_completion\_comparison.py} in the accompanying archive.
+implementation is in \path{bench.py}, the structural checks are in
+\path{test_bench_families.py}, and the experimental entry point is
+\path{run_completion_comparison.py}. These files are in
+\path{rl_layout/experiments/} in the accompanying archive.
 
 \paragraph{Design}
 The suite crosses four facility counts, $n\in\{8,16,32,64\}$, with three fill

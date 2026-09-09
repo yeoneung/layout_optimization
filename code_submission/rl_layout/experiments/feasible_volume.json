@@ -1,0 +1,244 @@
+{
+ "rows": [
+  {
+   "n_rooms": 2,
+   "fill": 0.35,
+   "samples_per_instance": 40000,
+   "instances": 4,
+   "feasible_frac_continuous": 0.26355,
+   "feasible_frac_lattice": 0.36625625000000006,
+   "min_continuous": 0.225675,
+   "max_continuous": 0.31415
+  },
+  {
+   "n_rooms": 3,
+   "fill": 0.35,
+   "samples_per_instance": 40000,
+   "instances": 4,
+   "feasible_frac_continuous": 0.0913625,
+   "feasible_frac_lattice": 0.16485,
+   "min_continuous": 0.087125,
+   "max_continuous": 0.09525
+  },
+  {
+   "n_rooms": 4,
+   "fill": 0.35,
+   "samples_per_instance": 40000,
+   "instances": 4,
+   "feasible_frac_continuous": 0.03295,
+   "feasible_frac_lattice": 0.0759625,
+   "min_continuous": 0.0261,
+   "max_continuous": 0.0381
+  },
+  {
+   "n_rooms": 6,
+   "fill": 0.35,
+   "samples_per_instance": 40000,
+   "instances": 4,
+   "feasible_frac_continuous": 0.004,
+   "feasible_frac_lattice": 0.0166,
+   "min_continuous": 0.003175,
+   "max_continuous": 0.005675
+  },
+  {
+   "n_rooms": 8,
+   "fill": 0.35,
+   "samples_per_instance": 40000,
+   "instances": 4,
+   "feasible_frac_continuous": 0.0005875,
+   "feasible_frac_lattice": 0.0045125,
+   "min_continuous": 0.0003,
+   "max_continuous": 0.001025
+  },
+  {
+   "n_rooms": 10,
+   "fill": 0.35,
+   "samples_per_instance": 40000,
+   "instances": 4,
+   "feasible_frac_continuous": 8.750000000000001e-05,
+   "feasible_frac_lattice": 0.00105625,
+   "min_continuous": 5e-05,
+   "max_continuous": 0.000125
+  },
+  {
+   "n_rooms": 12,
+   "fill": 0.35,
+   "samples_per_instance": 40000,
+   "instances": 4,
+   "feasible_frac_continuous": 6.25e-06,
+   "feasible_frac_lattice": 0.00021875,
+   "min_continuous": 0.0,
+   "max_continuous": 2.5e-05
+  },
+  {
+   "n_rooms": 16,
+   "fill": 0.35,
+   "samples_per_instance": 40000,
+   "instances": 4,
+   "feasible_frac_continuous": 0.0,
+   "feasible_frac_lattice": 1.25e-05,
+   "min_continuous": 0.0,
+   "max_continuous": 0.0
+  },
+  {
+   "n_rooms": 2,
+   "fill": 0.5,
+   "samples_per_instance": 40000,
+   "instances": 4,
+   "feasible_frac_continuous": 0.16753125000000002,
+   "feasible_frac_lattice": 0.238325,
+   "min_continuous": 0.11465,
+   "max_continuous": 0.2263
+  },
+  {
+   "n_rooms": 3,
+   "fill": 0.5,
+   "samples_per_instance": 40000,
+   "instances": 4,
+   "feasible_frac_continuous": 0.014675,
+   "feasible_frac_lattice": 0.051250000000000004,
+   "min_continuous": 0.003225,
+   "max_continuous": 0.027125
+  },
+  {
+   "n_rooms": 4,
+   "fill": 0.5,
+   "samples_per_instance": 40000,
+   "instances": 4,
+   "feasible_frac_continuous": 0.0030375,
+   "feasible_frac_lattice": 0.014675,
+   "min_continuous": 0.000975,
+   "max_continuous": 0.00455
+  },
+  {
+   "n_rooms": 6,
+   "fill": 0.5,
+   "samples_per_instance": 40000,
+   "instances": 4,
+   "feasible_frac_continuous": 0.00015625,
+   "feasible_frac_lattice": 0.0010875,
+   "min_continuous": 5e-05,
+   "max_continuous": 0.000375
+  },
+  {
+   "n_rooms": 8,
+   "fill": 0.5,
+   "samples_per_instance": 40000,
+   "instances": 4,
+   "feasible_frac_continuous": 1.8750000000000002e-05,
+   "feasible_frac_lattice": 6.875e-05,
+   "min_continuous": 0.0,
+   "max_continuous": 5e-05
+  },
+  {
+   "n_rooms": 10,
+   "fill": 0.5,
+   "samples_per_instance": 40000,
+   "instances": 4,
+   "feasible_frac_continuous": 0.0,
+   "feasible_frac_lattice": 1.25e-05,
+   "min_continuous": 0.0,
+   "max_continuous": 0.0
+  },
+  {
+   "n_rooms": 12,
+   "fill": 0.5,
+   "samples_per_instance": 40000,
+   "instances": 4,
+   "feasible_frac_continuous": 0.0,
+   "feasible_frac_lattice": 0.0,
+   "min_continuous": 0.0,
+   "max_continuous": 0.0
+  },
+  {
+   "n_rooms": 16,
+   "fill": 0.5,
+   "samples_per_instance": 40000,
+   "instances": 4,
+   "feasible_frac_continuous": 0.0,
+   "feasible_frac_lattice": 0.0,
+   "min_continuous": 0.0,
+   "max_continuous": 0.0
+  },
+  {
+   "n_rooms": 2,
+   "fill": 0.65,
+   "samples_per_instance": 40000,
+   "instances": 4,
+   "feasible_frac_continuous": 0.07123750000000001,
+   "feasible_frac_lattice": 0.14200000000000002,
+   "min_continuous": 0.0,
+   "max_continuous": 0.181875
+  },
+  {
+   "n_rooms": 3,
+   "fill": 0.65,
+   "samples_per_instance": 40000,
+   "instances": 4,
+   "feasible_frac_continuous": 0.003425,
+   "feasible_frac_lattice": 0.015106249999999998,
+   "min_continuous": 0.0,
+   "max_continuous": 0.011925
+  },
+  {
+   "n_rooms": 4,
+   "fill": 0.65,
+   "samples_per_instance": 40000,
+   "instances": 4,
+   "feasible_frac_continuous": 0.0005,
+   "feasible_frac_lattice": 0.00393125,
+   "min_continuous": 2.5e-05,
+   "max_continuous": 0.0017
+  },
+  {
+   "n_rooms": 6,
+   "fill": 0.65,
+   "samples_per_instance": 40000,
+   "instances": 4,
+   "feasible_frac_continuous": 0.0,
+   "feasible_frac_lattice": 2.4999999999999998e-05,
+   "min_continuous": 0.0,
+   "max_continuous": 0.0
+  },
+  {
+   "n_rooms": 8,
+   "fill": 0.65,
+   "samples_per_instance": 40000,
+   "instances": 4,
+   "feasible_frac_continuous": 0.0,
+   "feasible_frac_lattice": 0.0,
+   "min_continuous": 0.0,
+   "max_continuous": 0.0
+  },
+  {
+   "n_rooms": 10,
+   "fill": 0.65,
+   "samples_per_instance": 40000,
+   "instances": 4,
+   "feasible_frac_continuous": 0.0,
+   "feasible_frac_lattice": 0.0,
+   "min_continuous": 0.0,
+   "max_continuous": 0.0
+  },
+  {
+   "n_rooms": 12,
+   "fill": 0.65,
+   "samples_per_instance": 40000,
+   "instances": 4,
+   "feasible_frac_continuous": 0.0,
+   "feasible_frac_lattice": 0.0,
+   "min_continuous": 0.0,
+   "max_continuous": 0.0
+  },
+  {
+   "n_rooms": 16,
+   "fill": 0.65,
+   "samples_per_instance": 40000,
+   "instances": 4,
+   "feasible_frac_continuous": 0.0,
+   "feasible_frac_lattice": 0.0,
+   "min_continuous": 0.0,
+   "max_continuous": 0.0
+  }
+ ]
+}

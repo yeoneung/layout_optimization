@@ -18,23 +18,24 @@ files is given in [`code_submission/README.md`](code_submission/README.md).
 
 The matched-time comparison in the main manuscript is stored in:
 
-- `code_submission/rl_layout/v2/completion_comparison_dense50_v5.json`
-- `code_submission/rl_layout/v2/completion_comparison_dense50_summary_v5.json`
-- `code_submission/rl_layout/v2/completion_comparison_dense50_audit_v5.json`
-- `code_submission/rl_layout/v2/completion_comparison_boundary80_v5.json`
-- `code_submission/rl_layout/v2/completion_comparison_boundary80_summary_v5.json`
-- `code_submission/rl_layout/v2/completion_comparison_boundary80_audit_v5.json`
+- `code_submission/rl_layout/experiments/completion_comparison_dense50.json`
+- `code_submission/rl_layout/experiments/completion_comparison_dense50_summary.json`
+- `code_submission/rl_layout/experiments/completion_comparison_dense50_audit.json`
+- `code_submission/rl_layout/experiments/completion_comparison_boundary80.json`
+- `code_submission/rl_layout/experiments/completion_comparison_boundary80_summary.json`
+- `code_submission/rl_layout/experiments/completion_comparison_boundary80_audit.json`
 
 These files include the run metadata, anytime traces, stored layouts, summary
 statistics, and independent audit results used in the paper.
-The suffixes in these filenames are retained as immutable experiment identifiers;
-the submission files in `paper/` do not carry version suffixes.
+Files and folders use descriptive names. The original seed tags inside result
+metadata are preserved because the instance generator uses them to reconstruct
+the published benchmarks.
 
 ## Basic verification
 
 Install the environment listed in
 `code_submission/requirements_completion.txt`, then run the following commands
-from `code_submission/rl_layout/v2/`:
+from `code_submission/rl_layout/experiments/`:
 
 ```text
 python test_bench_families.py
@@ -43,3 +44,12 @@ python test_completion_search.py
 
 Other environments and all verification entry points are documented in the
 reproducibility archive README.
+
+To recheck every stored layout and objective in the two primary studies, run
+these commands from `code_submission/rl_layout/experiments/`. The output names
+below keep the shipped audit reports intact.
+
+```text
+python audit_completion_results.py --input completion_comparison_dense50.json --out dense_recheck.json
+python audit_completion_results.py --input completion_comparison_boundary80.json --out boundary_recheck.json
+```

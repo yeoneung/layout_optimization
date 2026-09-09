@@ -1,0 +1,303 @@
+{
+ "scenario": "comb_high",
+ "samples": 64,
+ "rows": [
+  {
+   "method": "RL-construct greedy (det.)",
+   "quality_mean": 3529.3354063810293,
+   "quality_std": 0.0,
+   "quality_max": 3529.3354063810293,
+   "diversity": 0.0,
+   "feasible_rate": 1.0,
+   "ms_per_sample": 77.48439162969589,
+   "evals_per_sample": 32.0,
+   "note": "one layout per brief: a function, not a distribution"
+  },
+  {
+   "method": "RL-construct T=0.4",
+   "quality_mean": 3529.3354063810293,
+   "quality_std": 8.038873388460929e-14,
+   "quality_max": 3529.3354063810298,
+   "diversity": 0.0,
+   "feasible_rate": 1.0,
+   "ms_per_sample": 28.578147292137146,
+   "evals_per_sample": 32.0,
+   "note": ""
+  },
+  {
+   "method": "RL-construct T=0.7",
+   "quality_mean": 3529.3354063810293,
+   "quality_std": 2.477747184196161e-13,
+   "quality_max": 3529.33540638103,
+   "diversity": 0.0,
+   "feasible_rate": 1.0,
+   "ms_per_sample": 71.84378057718277,
+   "evals_per_sample": 32.0,
+   "note": ""
+  },
+  {
+   "method": "RL-construct T=1.0",
+   "quality_mean": 3529.2547837462153,
+   "quality_std": 0.3775378925212141,
+   "quality_max": 3529.33540638103,
+   "diversity": 0.0020833333333333333,
+   "feasible_rate": 1.0,
+   "ms_per_sample": 45.453134924173355,
+   "evals_per_sample": 32.0,
+   "note": ""
+  },
+  {
+   "method": "RL-construct T=1.5",
+   "quality_mean": 3527.2178304713916,
+   "quality_std": 4.3083511862120885,
+   "quality_max": 3529.475492124757,
+   "diversity": 0.02981481481481482,
+   "feasible_rate": 1.0,
+   "ms_per_sample": 26.749979704618454,
+   "evals_per_sample": 32.0,
+   "note": ""
+  },
+  {
+   "method": "RL-construct T=2.5",
+   "quality_mean": 3509.5885313652493,
+   "quality_std": 25.665228476284078,
+   "quality_max": 3529.4754921247577,
+   "diversity": 0.14389756944444446,
+   "feasible_rate": 1.0,
+   "ms_per_sample": 30.906271189451218,
+   "evals_per_sample": 32.0,
+   "note": ""
+  },
+  {
+   "method": "RL-construct T=4.0",
+   "quality_mean": 3365.2593487370887,
+   "quality_std": 80.38593378156118,
+   "quality_max": 3496.9553773015036,
+   "diversity": 0.4011863425925925,
+   "feasible_rate": 1.0,
+   "ms_per_sample": 30.812568962574005,
+   "evals_per_sample": 32.0,
+   "note": ""
+  },
+  {
+   "method": "SA 512 cont (same start)",
+   "quality_mean": 2724.950148798416,
+   "quality_std": 120.35475772771724,
+   "quality_max": 3045.2007589060286,
+   "diversity": 0.5417274305555556,
+   "feasible_rate": 0.109375,
+   "ms_per_sample": 524.4999527931213,
+   "evals_per_sample": 28683.0,
+   "note": ""
+  },
+  {
+   "method": "SA 512 lattice (same start)",
+   "quality_mean": 2970.9459061701446,
+   "quality_std": 154.4572715444779,
+   "quality_max": 3232.3634336673995,
+   "diversity": 0.4974160879629629,
+   "feasible_rate": 0.515625,
+   "ms_per_sample": 480.1250696182251,
+   "evals_per_sample": 28683.0,
+   "note": ""
+  },
+  {
+   "method": "SA 2048 cont (same start)",
+   "quality_mean": 2938.763102020749,
+   "quality_std": 135.74582856752474,
+   "quality_max": 3180.069629655079,
+   "diversity": 0.6265046296296296,
+   "feasible_rate": 0.421875,
+   "ms_per_sample": 436.5312084555626,
+   "evals_per_sample": 26379.0,
+   "note": ""
+  },
+  {
+   "method": "SA 2048 lattice (same start)",
+   "quality_mean": 3219.091531165338,
+   "quality_std": 62.372478085467236,
+   "quality_max": 3334.4705656827855,
+   "diversity": 0.5689872685185184,
+   "feasible_rate": 0.96875,
+   "ms_per_sample": 463.96876126527786,
+   "evals_per_sample": 27915.0,
+   "note": ""
+  },
+  {
+   "method": "SA 8192 cont (same start)",
+   "quality_mean": 3149.8048783299237,
+   "quality_std": 84.41961624738136,
+   "quality_max": 3280.6830069563257,
+   "diversity": 0.6430063657407408,
+   "feasible_rate": 0.890625,
+   "ms_per_sample": 493.0625148117542,
+   "evals_per_sample": 29707.0,
+   "note": ""
+  },
+  {
+   "method": "SA 8192 lattice (same start)",
+   "quality_mean": 3321.106463390184,
+   "quality_std": 35.08732747424763,
+   "quality_max": 3408.9103770019815,
+   "diversity": 0.5807899305555556,
+   "feasible_rate": 1.0,
+   "ms_per_sample": 477.8437651693821,
+   "evals_per_sample": 29067.0,
+   "note": ""
+  },
+  {
+   "method": "SA 45000 cont (same start)",
+   "quality_mean": 3264.72081288228,
+   "quality_std": 34.868197805316086,
+   "quality_max": 3337.0167484900267,
+   "diversity": 0.6473090277777778,
+   "feasible_rate": 1.0,
+   "ms_per_sample": 1018.7188014388084,
+   "evals_per_sample": 60115.0,
+   "note": ""
+  },
+  {
+   "method": "SA 45000 lattice (same start)",
+   "quality_mean": 3414.4557892758585,
+   "quality_std": 26.7792583317653,
+   "quality_max": 3473.92940510124,
+   "diversity": 0.6385966435185185,
+   "feasible_rate": 1.0,
+   "ms_per_sample": 1070.2936761081219,
+   "evals_per_sample": 61395.0,
+   "note": ""
+  },
+  {
+   "method": "SA 45000 (random restarts)",
+   "quality_mean": 3273.568412942537,
+   "quality_std": 38.4644922411987,
+   "quality_max": 3338.824435773777,
+   "diversity": 0.6518171296296296,
+   "feasible_rate": 1.0,
+   "ms_per_sample": 1035.0312516093254,
+   "evals_per_sample": 60371.0,
+   "note": "different starts, upper bound on SA variety"
+  },
+  {
+   "method": "shelf packing (random order)",
+   "quality_mean": 2942.3205643417714,
+   "quality_std": 56.91515779474373,
+   "quality_max": 3073.336153102621,
+   "diversity": 0.4503559027777779,
+   "feasible_rate": 1.0,
+   "ms_per_sample": 0.0,
+   "evals_per_sample": 1.0,
+   "note": ""
+  },
+  {
+   "method": "greedy constructive (area order, det.)",
+   "quality_mean": 3359.5385514261693,
+   "quality_std": 4.547473508864641e-13,
+   "quality_max": 3359.5385514261698,
+   "diversity": 0.0,
+   "feasible_rate": 1.0,
+   "ms_per_sample": 6.515637040138245,
+   "evals_per_sample": 32.0,
+   "note": "deterministic: one layout per brief"
+  },
+  {
+   "method": "greedy constructive (room+position, det.)",
+   "quality_mean": 3380.1912280789247,
+   "quality_std": 4.547473508864641e-13,
+   "quality_max": 3380.1912280789243,
+   "diversity": 0.0,
+   "feasible_rate": 1.0,
+   "ms_per_sample": 73.01561534404755,
+   "evals_per_sample": 528.0,
+   "note": "deterministic: one layout per brief"
+  },
+  {
+   "method": "greedy constructive (random order)",
+   "quality_mean": 3414.924851804031,
+   "quality_std": 34.89381653462194,
+   "quality_max": 3474.0268997209446,
+   "diversity": 0.6029224537037038,
+   "feasible_rate": 1.0,
+   "ms_per_sample": 346.54687717556953,
+   "evals_per_sample": 898.0,
+   "note": "the Track E mechanism with a greedy rule instead of a policy"
+  },
+  {
+   "method": "greedy constructive (area, jitter 2)",
+   "quality_mean": 3310.4099362308307,
+   "quality_std": 36.9315473988506,
+   "quality_max": 3413.375835094579,
+   "diversity": 0.6664554398148148,
+   "feasible_rate": 1.0,
+   "ms_per_sample": 6.781253963708878,
+   "evals_per_sample": 32.0,
+   "note": ""
+  },
+  {
+   "method": "greedy constructive (area, jitter 5)",
+   "quality_mean": 3263.0543631491473,
+   "quality_std": 44.56316000335201,
+   "quality_max": 3363.668263410981,
+   "diversity": 0.6586140046296296,
+   "feasible_rate": 1.0,
+   "ms_per_sample": 6.843749433755875,
+   "evals_per_sample": 32.0,
+   "note": ""
+  },
+  {
+   "method": "greedy constructive (area, jitter 10)",
+   "quality_mean": 3219.7723130092113,
+   "quality_std": 45.34905052722797,
+   "quality_max": 3345.7559842315263,
+   "diversity": 0.6684895833333333,
+   "feasible_rate": 1.0,
+   "ms_per_sample": 6.781250238418579,
+   "evals_per_sample": 32.0,
+   "note": ""
+  },
+  {
+   "method": "greedy constructive (area, jitter 20)",
+   "quality_mean": 3103.5551120483856,
+   "quality_std": 44.77665238398389,
+   "quality_max": 3221.400267252369,
+   "diversity": 0.6716087962962962,
+   "feasible_rate": 1.0,
+   "ms_per_sample": 6.781235337257385,
+   "evals_per_sample": 32.0,
+   "note": ""
+  },
+  {
+   "method": "greedy constructive (area, jitter 40)",
+   "quality_mean": 2975.372961336874,
+   "quality_std": 53.07322652406765,
+   "quality_max": 3106.172027832812,
+   "diversity": 0.6869241898148146,
+   "feasible_rate": 1.0,
+   "ms_per_sample": 6.734360009431839,
+   "evals_per_sample": 32.0,
+   "note": ""
+  },
+  {
+   "method": "greedy constructive (random order, jitter 5)",
+   "quality_mean": 3251.2094555290078,
+   "quality_std": 61.60310188639173,
+   "quality_max": 3376.7434052386184,
+   "diversity": 0.6718894675925927,
+   "feasible_rate": 1.0,
+   "ms_per_sample": 350.10937228798866,
+   "evals_per_sample": 896.0,
+   "note": ""
+  },
+  {
+   "method": "greedy constructive (random order, jitter 20)",
+   "quality_mean": 2984.5112586552195,
+   "quality_std": 109.50920541442542,
+   "quality_max": 3141.0753556214336,
+   "diversity": 0.6894994212962962,
+   "feasible_rate": 0.9375,
+   "ms_per_sample": 349.3437469005585,
+   "evals_per_sample": 896.0,
+   "note": ""
+  }
+ ]
+}
