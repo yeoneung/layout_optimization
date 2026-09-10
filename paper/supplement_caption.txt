@@ -1,0 +1,4 @@
+Online supplement: adaptive repair configuration and validation, quality through
+60 seconds for 32 to 256 facilities, target attainment and timing checks,
+one-second repair-mechanism tables, secondary feasibility and transfer
+diagnostics, and policy architecture and training records.

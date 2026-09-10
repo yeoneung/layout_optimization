@@ -1,0 +1,5 @@
+# Extended CPU-only M0/M1/ALNS study: Python 3.10.18.
+# Torch is imported by the shared witness module; no GPU computation is used.
+numpy==2.2.5
+psutil==5.9.0
+torch==2.7.1

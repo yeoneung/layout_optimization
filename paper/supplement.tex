@@ -1,21 +1,32 @@
-% Online supplement. Compiles standalone; no citations, so no bibliography.
+% Online supplement. Compiles standalone.
 \documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \usepackage[margin=2.8cm]{geometry}
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx}
 \graphicspath{{figs/}}
 \usepackage{booktabs}
 \usepackage{multirow}
+\input{bibliography_setup.tex}
+\newcommand{\code}[1]{\texttt{#1}}
 \usepackage[hidelinks]{hyperref}
+\input{paper_metadata.tex}
+\input{extended_results.tex}
+\hypersetup{pdfauthor={},pdftitle={Online supplement to: \PaperTitle}}
 
 \renewcommand{\thesection}{S\arabic{section}}
 \renewcommand{\thetable}{S\arabic{table}}
 \renewcommand{\thefigure}{S\arabic{figure}}
 
 \title{Online supplement to:\\
-\emph{Completion-aware search with partial witness repair for dense
-fixed-shape facility layout}}
+\emph{\PaperTitle}}
+\ifdefined\CIEAuthorCopy
 \author{Junhwan Ahn \and Kunwoo Lee \and Kyunghyun Lee \and Yeoneung Kim}
+\hypersetup{pdfauthor={Junhwan Ahn, Kunwoo Lee, Kyunghyun Lee, Yeoneung Kim}}
+\else
+\author{}
+\fi
 \date{}
 
 \begin{document}
@@ -29,12 +40,15 @@ improvement formulation ablation (\ref{app:ablation}), a qualitative
 certificate gallery (\ref{app:gallery}), the complete MCNC/GSRC conversion
 (\ref{app:conversion}) and the large instance feasibility record
 (\ref{app:bigbench}). Each experiment follows the protocol in the main text.
-The main claims do not depend on these experiments, and we report the relevant
-control for each experiment. Section S9 gives the full budget sensitivity and
+These studies provide complementary diagnostics, with a relevant control for
+each experiment. Section S9 gives the full budget sensitivity and
 mechanism record for the comparison in which all methods start from the same
 layout.
-Section S10 collects the diagnostic evidence removed from the shortened main
-text; complete run-level outputs remain in the archive.
+Section S10 collects additional formulation and certificate diagnostics;
+complete run-level outputs remain in the archive. Sections S11 and S12 document
+secondary methods, dataset coverage and policy training. Section S13 reports
+the 60-second comparison of M0, M1, and ALNS, including configuration selection,
+coverage, quality curves, target attainment, and timing checks.
 
 \section{Zero shot transfer}
 \label{app:transfer}
@@ -93,16 +107,15 @@ it reaches $3\,955.6$ against the policy's $3\,848.5$. Across the three test set
 the zero shot policy is better on one, similar on one and worse on one. These
 results show that one set of weights can evaluate unseen briefs with a quality
 similar to large budget annealing while using three to four orders of magnitude
-less search. They do not show that the policy is always better. Transfer is
+less search, with the relative ranking varying across briefs. Transfer is
 evaluated at a fixed facility count
 (main text, Limitations).
 
 \section{Quality and diversity}
 \label{app:qd}
 A common argument for learning in design is that a policy provides a
-\emph{distribution} over layouts. Previous comparisons used one policy
-temperature and several annealing budgets. We vary all three methods. We vary
-the sampling temperature for the policy, the budget for annealing, and the
+\emph{distribution} over layouts. To compare quality and diversity across all
+three methods, we vary the sampling temperature for the policy, the budget for annealing, and the
 fraction of randomized commitments for the constructor without training.
 
 \begin{table}[htbp]
@@ -154,10 +167,10 @@ evaluations).
 
 The two fronts cross once. The policy has a higher objective up to diversity
 $\approx0.42$, while the constructor without training has a higher objective above
-$\approx0.45$. An earlier, coarser
-sweep of the heuristic, which tried only a uniform random order and therefore
-jumps from $0.000$ to $0.603$, suggested a gap in its range that does not
-exist. This is a single scenario result and we did not repeat it on the suite.
+$\approx0.45$. Partial randomization of the commit order resolves the interval between
+$0.000$ and $0.603$ left between the deterministic and uniformly randomized settings.
+This comparison covers a single scenario; evaluation across the generated
+suite remains future work.
 
 \section{Amortized cost}
 \label{app:amortize}
@@ -172,9 +185,9 @@ and decodes in $17.8$\,ms per layout.
 \begin{table}[htbp]
 \centering
 \caption{Annealing budget against the training time needed to match it. The
-$45$k lattice row is the measurement of the main comparison (the budget
+$45$k lattice row is the measurement of the scenario comparison (the budget
 sweep's own $45$k run gives $3\,400.8$ at $1.13$\,s); the larger budgets come
-from the dedicated sweep. The legacy scenario implementation is not batched, so its
+from the dedicated sweep. The reference scenario implementation is not batched, so its
 time per layout is omitted.}
 \label{tab:amortize}
 \footnotesize
@@ -182,7 +195,7 @@ time per layout is omitted.}
 \toprule
 annealer & mean $J$ & s/layout & training s to exceed \\
 \midrule
-legacy scenario implementation, $45$k & 3\,269.9 & not reported & 109 \\
+non-batched reference, $45$k & 3\,269.9 & not reported & 109 \\
 lattice, $45$k   & 3\,414.8 & 1.00 & 157 \\
 lattice, $150$k  & 3\,459.0 & 3.40 & 215 \\
 lattice, $400$k  & 3\,489.1 & 8.83 & 256 \\
@@ -203,17 +216,13 @@ reuse it for later requests. A stream of unseen briefs is evaluated separately
 in \ref{app:transfer}. Second, this comparison is against annealing and not
 against the constructor without training. At $88$\,ms per layout, the initial
 training cost is recovered only after roughly $29\,000$ layouts relative to the
-constructor. Thus, amortization does not provide an advantage over this
-constructor for smaller workloads.
+constructor. For smaller workloads, this constructor has the lower total cost.
 
 \section{Action granularity}
 \label{app:granularity}
 We compare a discrete action head for small moves with a continuous displacement
-head when feasibility is handled by a penalty. Our earlier experiments on a
-small scenario suggested a tradeoff between feasibility and return, but they
-were conducted before the present protocol and are not used as evidence. We
-report the comparison inside
-the corrected improvement MDP on the single $n=32$ \textsc{office} scenario
+head when feasibility is handled by a penalty. We report the comparison inside
+the improvement MDP on the single $n=32$ \textsc{office} scenario
 (best observed reward, jump and swap moves, Metropolis acceptance). One checkpoint
 per action head is evaluated from the same 64 independent random starts, shown in
 Table~\ref{tab:granularity}. No tradeoff appears in this evaluation. With
@@ -226,8 +235,9 @@ formulation the question does not arise.
 
 \begin{table}[htbp]
 \centering
-\caption{Discrete against continuous action head inside the corrected
-improvement MDP on \textsc{office}, $n=32$: mean and standard deviation across
+\caption{Discrete against continuous action head inside the improvement MDP
+with best observed reward, jump and swap moves, and Metropolis acceptance
+on \textsc{office}, $n=32$: mean and standard deviation across
 the same 64 independent evaluation starts.}
 \label{tab:granularity}
 \footnotesize
@@ -249,7 +259,7 @@ continuous & mean    & 4\,096 & $1\,649.5\pm203.9$ & 0.00 \\
 
 \section{Improvement formulation ablation, in full}
 \label{app:ablation}
-The main text summarizes the corrections to the improvement MDP on
+The main text summarizes the improvement MDP variants on
 \textsc{office}; Table~\ref{tab:ablationfull} gives every variant. Each is
 trained for a matched budget of $688$k environment steps and evaluated on $64$
 held out starts using stochastic decoding at $4\,096$ objective evaluations.
@@ -313,21 +323,21 @@ floorplanning numbers, which use full resolution and a different pin model.
 Integer flooring changes block shapes and packing possibilities, so converted
 dead space is not treated as a published full-resolution result.
 
-\section{Larger instances}
+\section{Larger-instance constructor feasibility}
 \label{app:bigbench}
 Table~\ref{tab:bigbench} gives the full feasibility record of the
 constructors without training on $96$ to $256$ facilities summarized in the main
-text.
+text. These are constructor diagnostics; M1's direct quality evaluation at
+128 and 256 facilities is reported in S13.
 
 \begin{table}[htbp]
 \centering
 \caption{Constructors without training on larger instances, feasibility rate.
 Every instance has a verified feasible packing, so a failure indicates that the
 method did not find the existing packing.
-Plate geometry is drawn per cell, so rows are not comparable with one another;
-the comparison is between methods within a row. The rollout certificate is
-$O(n^2WH)$ per query and was not run above $128$ facilities; that is recorded
-rather than omitted.}
+Plate geometry is drawn per cell, so methods are compared within each row.
+The rollout certificate is $O(n^2WH)$ per query and was not run above
+$128$ facilities.}
 \label{tab:bigbench}
 \footnotesize
 \begin{tabular}{@{}lrccc@{}}
@@ -349,7 +359,7 @@ $n$ & instances & no certificate & first fit & rollout \\
 \end{tabular}
 \end{table}
 
-\section{Complete results for methods starting from the same layout}
+\section{One-second mechanism study}
 \label{app:sharedfull}
 
 Every row below uses a common verified best-contact layout and retains it as a
@@ -363,7 +373,7 @@ feasible objective $J_\beta$, including the constant no-overlap bonus.
 
 \begin{table}[htbp]
 \centering
-\caption{Dense confirmation at fill 0.95. Entries are mean percentage
+\caption{One-second dense study at fill 0.95. Entries are mean percentage
 improvement over the common initial layout.}
 \label{tab:sharedfull}
 \small
@@ -487,11 +497,11 @@ The adversarial regression set rejects duplicate and missing
 facilities, negative and out-of-range coordinates, overlap, stale witnesses and
 incomplete timeout returns, while accepting legal edge contact.
 
-\section{Diagnostic evidence omitted from the focused main text}
-\label{app:legacydiagnostics}
+\section{Additional formulation and certificate diagnostics}
+\label{app:diagnostics}
 
-These experiments motivated completion-aware construction but are not evidence
-for the primary matched-time claim. Table~\ref{tab:sfeasvol} shows why an overlap
+These experiments explain the formulation and certificate choices that motivate
+completion-aware construction. Table~\ref{tab:sfeasvol} shows why an overlap
 penalty receives little feasible exploration as size and density increase. The
 lattice column is higher than the continuous-center column wherever both are
 resolved, so action representation matters before learning.
@@ -522,7 +532,7 @@ $n$ & continuous & lattice & continuous & lattice & continuous & lattice \\
 \end{tabular}
 \end{table}
 
-The earlier single-facility improvement MDP used the reward
+The single-facility translation baseline uses the reward
 $J(s_{t+1})-J(s_t)$. With discount one it optimizes the terminal objective; with
 discount below one it favors high intermediate values and penalizes recovered
 detours. At a common 688k-step training budget, adding a best-observed reward,
@@ -531,19 +541,346 @@ $2\,658.5$ to $3\,067.2$ and feasibility from 0\% to 48\%. Lattice annealing
 reached $3\,414.8$, and a masked constructor without training reached
 $3\,380.2$. Table~\ref{tab:ablationfull} gives the complete formulation ablation.
 
-Initialization was also a major confound in the old decoder. On 100-instance
+Initialization coverage depended strongly on the witness generator. On 100-instance
 dense cells $(n,f)=(32,0.90),(32,0.95),(64,0.95)$, bottom-left fill in area
 order covered 0.78, 0.09 and 0.28; best-contact covered 0.98, 0.96 and 1.00.
-This is why every primary method now receives the same archived best-contact
-layout. The legacy exact-marginal selector matched or exceeded the two learned
-selectors in most $n=64$ cells, so learning is not used in M1.
+To control for initialization, every primary method receives the same verified
+best-contact layout. In the full-regeneration decoder diagnostics, the exact
+marginal selector matched or exceeded the two learned selectors in most $n=64$
+cells, supporting M1's use of exact marginal ranking.
 
 Finally, the learned completion predictor was trained on 25,258 rollout states
 with an instance-grouped split. Validation AUC was 0.902, but on disjoint fill
 0.95 tests its best completion rate was 0.20, compared with 0.90 for verified
 first fit and 1.00 for the more expensive rollout certificate. The labels record
-success of one heuristic rollout, not true membership in the set of completable
-states. This negative result supports learned candidate ordering, but not using
-an unverified classifier as a hard feasibility decision.
+the outcome of one heuristic rollout; membership in the set of completable
+states requires a feasible continuation. These results motivate using learned
+scores for candidate ordering together with independent feasibility verification.
 
+On the two hand-authored scenarios, masked constructive search supplies most of
+the improvement over translation-based search, but learning adds only 0.9\%
+over the best training-free procedure in the same action set. On 60 held-out
+moderate-density instances, beam search without training has the best paired
+objective and solves 57, compared with 60 for the policies. These results support
+the use of training-free selectors in the primary comparison; supporting tables and complete
+run-level tests are reported in the Online Supplement and archive, respectively.
+
+\section{Secondary methods and evaluation protocol}
+\label{app:secondaryprotocol}
+These experiments supplement the primary partial-repair comparison.
+
+\paragraph{Design}
+The suite crosses four facility counts, $n\in\{8,16,32,64\}$, with three fill
+ratios, $f\in\{0.40,0.60,0.75\}$, at $20$ instances per cell: $240$ instances.
+Five extensions follow the same construction from disjoint seeds.
+the density diagnostic adds $f\in\{0.80,0.85,0.90,0.95\}$ at $n=32$
+($80$) and $f\in\{0.85,0.90,0.95\}$ at $n=64$ ($60$);
+the large-instance diagnostic adds $n\in\{96,128,192,256\}$ at $f=0.85$ and
+$f=0.95$, with plates enlarged in proportion so facilities do not shrink to the
+minimum size ($180$). The certified sweep also covers the $n=64,f=0.80$ cell
+($20$). Finally, the frozen decoders are run on a confirmatory family of $100$
+held out instances in each $n\in\{32,64\}$ by $f\in\{0.90,0.95\}$ cell ($400$), and
+a small plate family at $n=8$ ($60$), sized so that constraint programming can
+prove optima, supports the gap study of the main-text small-instance calibration and moderate-density diagnostic.
+These diagnostic suites contain $1\,040$ distinct held out instances.
+The one-second mechanism study adds 200 dense instances and 80 boundary
+instances. The 60-second study adds 240 instances under distinct tags,
+including 128- and 256-facility cells (S13). Every source packing is verified.
+Achieved fill is recorded for each instance; integer dimensions make the target
+approximate. Plate aspect ratio, types, affinities and boundary preferences vary
+by instance. The randomized objective constants are drawn once per suite cell.
+
+\paragraph{Splits}
+Train, validation and test draw from disjoint generator seed ranges. Instance
+identity is determined by the family, split, facility count, nominal fill,
+batch size and index, together with the stored seed and tag.
+The policy confirmation and the primary comparison families
+use distinct generator tags. These test families are mutually disjoint and
+are disjoint from training, validation and the other test cells.
+
+\subsection{Diagnostic methods}
+The matched-time methods B0 to B3, B2S, M0, R0, M1, and ALNS are defined in
+the main-text method table. They are classical CPU implementations and share
+the initial layout, objective, time limit and verifier. The following methods
+are used in the diagnostic experiments.
+
+\begin{itemize}
+\item \textbf{Classical search}: shelf packing; lattice constrained simulated
+annealing at $8\,192$ and $45\,000$ proposals; tabu search
+ over single facility moves; and a lattice genetic
+algorithm with uniform crossover and elitism. Annealing and tabu use periodic
+greedy polish and a common budget of $45\,000$ objective calls.
+Constraining annealing to the lattice is itself worth $4.4\%$ on
+\textsc{office} and raises \textsc{clinic} feasibility from $20\%$ to $100\%$;
+we report against this stronger version. Tabu's tenure and start and the GA's
+population and memetic setting are chosen on validation like every other
+hyperparameter: tabu keeps the constructive start (steepest single facility
+moves cannot repair a random dense start), and the memetic variant was
+rejected for exceeding the evaluation budget tenfold without improving on its
+compliant counterpart.
+\item \textbf{Masked constructive methods without training}: greedy with largest first
+order; greedy with joint choice of facility and position; regret $k$ insertion for
+$k\in\{2,4,8\}$; beam search over insertion decisions at widths $1$ to $64$; and
+beam search with the order fixed to largest first.
+\item \textbf{Methods without training and with certificate guidance}: largest first and joint greedy
+with the certificate filter of the main-text witness construction and an argmax fallback.
+These are empirical heuristics, not instances of the main-text feasible-continuation theorem.
+\item \textbf{Learned}: a constructive policy trained with PPO
+\citep{Schulman2017PPO}; its heuristic variant with certificate guidance; and its
+full-regeneration certified variant with a carried witness. This last method uses
+the invariant of the main-text feasible-continuation theorem, but not the partial repair of
+the main-text partial-repair algorithm. Architecture and hyperparameters are in
+\ref{app:policy}.
+\end{itemize}
+
+Beam width and regret $k$ are selected on the \emph{validation} split for the
+objective comparison of the main-text small-instance calibration and moderate-density diagnostic, and the test split is
+evaluated once with them fixed. The density cells of
+the density diagnostic report the whole sweep instead, because the
+finding there is the pattern of collapse across widths. On the two reference
+scenarios, single instances with no validation counterpart, the best setting
+is taken on the scenario itself; that favors the baselines without training, and
+we flag it there rather than reporting a $p$ value.
+
+\subsection{Policy coverage}
+\label{sec:coverage_map}
+The encoder concatenates pair features of length $n$, so one checkpoint serves one
+facility count (the main-text limitations). No single policy spans the suite,
+and Table~\ref{tab:datamap} states exactly which instances a learned method was
+run on and which are comparisons of methods without training. Aggregate instance counts
+elsewhere in the paper refer to held out \emph{test} instances; training and
+validation instances are drawn from disjoint seed ranges and are not included in
+the reported test aggregates.
+
+\begin{table}[t]
+\centering
+\caption{Datasets, and the policies evaluated on them. Training budgets and
+wall clock differ by policy family and are listed per checkpoint in
+Table~\ref{tab:training} of \ref{app:policy}; training cost is per policy, not
+amortized across rows.}
+\label{tab:datamap}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}llrll@{}}
+\toprule
+dataset & $n$ & inst. & policies & trained on \\
+\midrule
+generated, main    & 8, 16   & 120 & none               & not used \\
+                   & 32      &  60 & 3 seeds, env order & train, $f{\le}0.75$ \\
+                   & 64      &  60 & see density rows   & not used \\
+generated, density & 32      &  80 & 2 seeds, own order & train, $f{=}0.75$ to $0.90$ \\
+                   & 64      &  60 & 2 seeds, own order & train, $f{=}0.75$ to $0.90$ \\
+generated, certified only & 64 & 20 & 2 seeds, own order & frozen; $f{=}0.80$ \\
+generated, dense confirm & 32, 64 & 400 & 2 seeds, own order & frozen checkpoints \\
+same initial layout, dense & 32, 64 & 200 & none & not used \\
+same initial layout, boundary & 32, 64 & 80 & none & not used \\
+generated, large   & 96 to 256 & 180 & none (fixed $n$)   & not used \\
+generated, exact   & 8       &  60 & none               & not used \\
+reference scenarios & 32     &   2 & 1 per scenario     & that scenario \\
+MCNC / GSRC        & 33 to 300 &   5 & none (other obj.)  & not used \\
+QAPLIB             & 12 to 30  &  32 & none (other obj.)  & not used \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The diagnostic experiments use the following protocol.
+Every method is attempted on every instance in the cells assigned to it.
+Objective comparisons are paired only on instances for which both methods return
+feasible layouts. We normalize by the best \emph{feasible} objective achieved on
+that instance, because raw values differ by an order of magnitude between cells
+with $8$ and $64$ facilities. We report the mean paired gap, a $95\%$
+bootstrap confidence interval over instances, a Wilcoxon signed rank test on
+paired differences with Holm correction across the family, and the number of
+instances on which each method wins. For binary reliability we report exact
+binomial confidence intervals. In the prespecified dense confirmation, guided and
+unfiltered decoders are paired instance by instance using the exact two sided
+McNemar test, with Holm correction across all twelve selector and cell comparisons.
+Coverage and feasibility conditional on return are analyzed separately for the
+selective decoder.
+
+\section{Policy and training}
+\label{app:policy}
+Facility tokens are embedded from features for each facility (size, placed flag,
+position, boundary coefficients, and the affinity and distance rows against all
+facilities) and mixed by self attention; a pointer head selects the facility.
+Position selection is a fully convolutional score over the plate from dilated
+residual convolutions on seven planes (occupancy, the legality mask, the affinity
+of the facility being placed toward whichever facility owns each cell, the
+boundary bonus it would earn, a mask for positions within bounds and two coordinate planes),
+modulated channelwise by the selected facility's embedding. The encoder has no
+separate embedding for each facility index, which permits transfer across briefs at
+fixed $n$. The reward is the exact marginal of the main-text local marginal proposition,
+so the episode return is the objective of the completed layout up to a
+constant.
+
+Unless a row of Table~\ref{tab:training} says otherwise, every constructive
+policy shares one PPO configuration: $\gamma=1$, GAE $\lambda=0.95$, clip
+$0.2$, Adam at $3\times10^{-4}$, $3$ epochs per batch, minibatch $512$,
+value coefficient $0.5$, gradient norm clip $0.5$, entropy coefficient $0.01$
+decayed linearly to zero at $80\%$ of training with a floor of $5\%$ of its
+initial value, token width $128$, three attention blocks, $64$ position head
+channels and $128$ parallel environments. For every policy, the final checkpoint
+is used; no checkpoint selection based on validation is performed. The predictive
+filter is a separate supervised diagnostic: it retains the lowest validation loss
+state over $4\,000$ epochs and fixes its seven thresholds on that same grouped
+validation set before any test evaluation. The five
+improvement MDP checkpoints of the secondary formulation study (tabulated
+in the Online Supplement, S5) are trained separately
+at a matched budget of $688{,}128$ steps ($193$ to $203$\,s each). Wall clock
+for policy training is on one RTX 4080 SUPER; the predictive filter was trained
+on CPU in $17$\,s.
+
+\begin{table}[t]
+\centering
+\caption{Training runs for the learned methods, from the stored checkpoint
+histories and predictive filter metadata. Budgets end at an iteration boundary, so nominal $1.2$M
+budgets record as $1{,}196{,}032$ or $1{,}198{,}080$.}
+\label{tab:training}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}llrrl@{}}
+\toprule
+policy or configuration & role & budget & min & deviations \\
+\midrule
+Dense-32, seeds 1/2 & density, $n=32$ & 1\,196\,032 & 34/50 & \\
+Dense-64, seeds 1/2 & density, $n=64$ & 1\,196\,032 & 34/34 & \\
+Suite, seeds 1/2/3 & main suite & 1\,196\,032 & 45/44/42 & random order \\
+Transfer & transfer (S1) & 1\,198\,080 & 17 & 64 env, 2 ep, mb 256, 48 ch \\
+Office & \textsc{office} & 1\,998\,848 & 34 & $2$M steps \\
+Clinic & \textsc{clinic} & 899\,072 & 7 & $0.9$M steps, 64 env \\
+\code{A0/A0'/A1/A2/C1} & improvement ablation & 688\,128 & 3.2 to 3.4 & five separate runs \\
+\code{C1'} & continuous head (S4) & 688\,128 & 2.5 & continuous displacement \\
+Completion predictor & predictive filter diagnostic & 4\,000 ep. & 0.28 & grouped validation \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+The repository README maps these policy labels to the checkpoint files and
+training histories. Seed identifiers distinguish independently trained policies;
+the improvement configurations retain the identifiers used in the ablation.
+
+\clearpage
+\section{Comparison through 60 seconds}
+\label{app:extended}
+
+This study evaluates M0, M1, and an adaptive repair control on a common
+initialized set. It crosses $n=32,64,128,256$, guillotine and nonslicing
+geometry, and nominal fills 0.90 and 0.95, with 10 and 20 attempted instances
+per geometry and size cell at the respective fills. Instance tags are disjoint
+from S9, and these timing records are analyzed separately. The maximum plate
+side is 44, 44, 72, and 100 for the four sizes; sampled mean-area bounds
+remain 9 to 30. Integer dimensions make fill approximate. The generated
+source packing is verified but withheld from every search.
+
+\subsection{Adaptive repair control and validation}
+The control is a layout-specific ALNS adaptation \citep{Ropke2006ALNS}.
+It combines three removal rules with two insertion rules. Random removal
+samples facilities uniformly without replacement. Spatial removal selects
+facilities with centers nearest a random anchor. Low-contribution removal
+ranks facilities by incident pair and boundary rewards and samples without
+replacement with weights proportional to the inverse square root of rank.
+The constant no-overlap bonus is omitted from these contribution scores.
+The removal count is uniform from two to the selected cap.
+
+Beam insertion visits removed facilities in decreasing area order, shuffled
+with probability 0.25, and keeps a bounded frontier ranked by accumulated
+exact marginal gain. Regret insertion repeatedly inserts the facility with
+the largest gap between its two best legal positions, breaking ties by area.
+Both use the configured number of ranked candidate positions and append the
+facility's original position when legal. Every complete candidate is checked
+by the same independent verifier and objective evaluator as M0 and M1.
+
+The six operator-pair weights start at one. After an attempt, the selected
+weight is updated to $\max(0.2,0.9w+0.1r)$, where the reward is six for
+a new best layout, three for an accepted improving move of the current
+layout, one for an accepted nonimproving move, and zero otherwise. The best
+layout is retained separately from the current layout. A nonimproving move
+with change $\Delta J$ is accepted with probability
+$\exp(\Delta J/T)$. The initial temperature is
+$0.0025\max(|J(w_0)-\beta_{\max}|,1)$ and is multiplied by 0.999 per attempt.
+These online updates are fixed parts of the search rule.
+
+Validation uses 16 disjoint instances: two per geometry, fill, and size cell
+at $n=64$ and 128, with two seeds and a 10-second cutoff. The configuration
+with the largest mean improvement after averaging seeds within instance is
+selected before testing. Table~\ref{tab:extendedvalidation} reports all four
+candidates and the B2/B2S reference controls. The selected ALNS configuration
+has removal cap four, beam width four, and four ranked candidates. M0 and M1
+retain $\kappa=32$, one completion attempt, and M1's repair cap of four.
+
+\ExtendedValidationTable
+
+\subsection{Coverage and quality}
+Table~\ref{tab:extendedcoverage} includes all 240 attempted instances.
+Initialization succeeds on 236; the four failures are split equally between
+the two $n=32$, fill 0.95 cells and are not replaced. Three methods and three
+seeds give 2,124 completed runs. Each run continues for 60 seconds and records
+cutoffs 0, 0.1, 0.3, 1, 3, 10, 30, and 60 seconds.
+
+\ExtendedCoverageTable
+
+Tables~\ref{tab:extendedqualityboundary} and \ref{tab:extendedqualitydense}
+give geometry-specific quality at the primary cutoffs. The full set of
+nonzero cutoffs is shown in Figure~\ref{fig:extendedfull}. Improvement uses
+$100[J_m(t)-J(w_0)]/J(w_0)$, including the constant feasible-layout bonus
+in the denominator. Three seeds are averaged within each instance. Pooled
+contrasts give equal weight to the two geometry families, with 10,000 paired
+bootstrap samples resampling instances within geometry. All 95\% intervals
+are descriptive and pointwise, without multiplicity adjustment. Raw objective
+gains, every cutoff, and geometry-specific paired intervals are retained in
+the accompanying result tables.
+
+\ExtendedQualityBoundaryTable
+\ExtendedQualityDenseTable
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.94\linewidth,height=0.83\textheight,keepaspectratio]{fig_extended_anytime_full.pdf}
+\caption{All size and fill cells of the 60-second comparison. Curves average
+seeds within instance and then give the two geometries equal weight.
+Connecting lines guide the eye between recorded cutoffs; they are not
+independently restarted searches. The common initialization time is excluded.}
+\label{fig:extendedfull}
+\end{figure}
+
+\subsection{Time to a target improvement}
+For each run and target $q\in\{1,5,10\}\%$, the first verified trace event
+reaching $q$ defines the hitting time. A non-hit contributes the 60-second
+cutoff to the restricted mean. Table~\ref{tab:extendedtargets} reports both
+hit percentage and restricted mean, pooling geometries equally. A companion
+total-time column in the result archive adds each run's measured
+initialization time. These summaries are descriptive, with equal seed counts
+per instance; no success-only timing average is used.
+
+At $n=256$, fill 0.95, M1 reaches a 5\% improvement in 94.2\% of runs with
+a restricted mean of 9.76 seconds, compared with 90.0\% and 20.73 seconds
+for M0. At the 10\% target, the order reverses: M0 reaches the target in
+56.7\% of runs with a restricted mean of 39.15 seconds, while M1 reaches
+it in 20.0\% with 51.74 seconds. This separates early moderate improvement
+from attainment of a more demanding target.
+
+\ExtendedTargetsTable
+
+\subsection{Timing and independent checks}
+Validation and test use eight single-threaded processes pinned to distinct
+physical cores of an AMD Ryzen 7 9700X, with Python 3.10.18 and NumPy 2.2.5
+on Windows 10. All methods and seeds for one instance run on the same core
+in deterministic shuffled order. BLAS and OpenMP thread counts are one.
+Table~\ref{tab:extendedtiming} reports the full-run CPU/wall ratios and return
+overruns. No low-ratio run is removed. These are throughput measurements
+under the stated allocation, rather than single-worker latency measurements.
+
+\ExtendedTimingTable
+
+The independent audit regenerates all attempted instances, checks their
+source packings and common initializations, verifies all 17,228 saved layouts,
+and recomputes every saved objective. It also checks the expected run identities,
+trace monotonicity, and the eligibility of every saved budget row. All checks
+pass, with zero objective recomputation error. The 130 completed events
+finishing after the final deadline are discarded. Protocol and result-manifest
+hashes link the reported tables to these audited records.
+
+\printbibliography
 \end{document}

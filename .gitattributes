@@ -6,6 +6,8 @@
 *.tex text eol=lf
 *.bib text eol=lf
 *.json text eol=lf
+# Preserve the byte-level source hash recorded by the audited experiment.
+/code_submission/rl_layout/experiments/certified_decode.py -text !eol whitespace=cr-at-eol
 *.dat text eol=lf
 *.blocks text eol=lf
 *.nets text eol=lf
@@ -17,4 +19,3 @@
 *.pt binary
 *.npz binary
 *.npy binary
-

@@ -11,10 +11,17 @@ __pycache__/
 *.out
 *.spl
 *.synctex.gz
+*.bcf
+*.run.xml
+
+# Local packaging and excluded preliminary experiment runs
+/code_submission.zip
+/code_submission/results/completion_extension/
+/code_submission/results/completion_extension_smoke*/
+/code_submission/results/completion_extension_full_cpu/**/worker_*.json
 
 # Editor and operating-system files
 .DS_Store
 Thumbs.db
 .idea/
 .vscode/
-

@@ -1,0 +1,79 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=25mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[hidelinks]{hyperref}
+\input{paper_metadata.tex}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.65em}
+\emergencystretch=1.5em
+
+\begin{document}
+
+\hfill \today
+
+The Editors\\
+\textit{\TargetJournal}
+
+Dear Editors,
+
+Please consider our manuscript, ``\PaperTitle,'' for publication as a research
+article in \textit{\TargetJournal}.
+
+Dense layout design calls for search decisions that preserve room for the
+remaining facilities. Our paper uses a known feasible layout as reusable geometry
+for subsequent construction. We ask when this information improves solution
+quality under the same time budget, connecting constructive search with the use
+of existing solutions in neighborhood design.
+
+We develop a partial witness repair rule. After a proposed placement, the method
+repacks only the displaced facilities and retains all unaffected rectangles in
+the stored completion. Building on the feasible-continuation principle of
+fortified rollout, this rule provides a targeted repair neighborhood for tightly
+packed layouts. We keep the compatible completion separate from the best full
+layout, and independently verify every candidate before it can update the
+returned solution.
+
+The main study compares partial repair, full completion regeneration, and a
+validation-selected adaptive repair control on 240 attempted instances with
+32 to 256 facilities, two geometry families, and fills of 90\% and 95\%.
+The common initializer succeeds on 236 instances, yielding 2,124 runs.
+At 95\% fill, partial repair exceeds the adaptive control by 3.45 to
+5.91 percentage points in initial-objective improvement at 10 seconds and
+1.68 to 4.12 points at 60 seconds. With 256 facilities, partial repair gives
+higher quality than full regeneration at 10 seconds, while full regeneration
+leads at 60 seconds. A separate one-second study isolates the benefit of
+nonempty repair beyond unchanged witness reuse. Together, these results show
+when targeted repair offers an early improvement and when broader
+reconstruction benefits from additional time.
+
+The paper addresses a computational decision problem in industrial engineering:
+improving a feasible facility arrangement while preserving hard packing
+constraints. Its contribution is a concrete repair mechanism and a controlled
+evaluation of when retaining a feasible completion is worth its computational
+cost. We believe this will interest readers of \textit{\TargetJournal} working
+on facility layout, computer-aided planning and heuristic optimization.
+
+The source code, benchmark generators, result files, and independent verification
+scripts are publicly available at
+\url{https://github.com/yeoneung/layout_optimization}. The Online Supplement
+provides the complete budget comparisons and additional diagnostics.
+
+% AUTHOR CONFIRMATION REQUIRED BEFORE SUBMISSION:
+% Uncomment the paragraph below only after confirming both statements with
+% all coauthors. Neither statement has been independently verified here.
+% The manuscript is not under consideration by another journal. All authors
+% have approved this manuscript and its submission to this journal.
+
+Thank you for considering our manuscript.
+
+Sincerely,\\
+Yeoneung Kim\\
+Corresponding author\\
+Department of Industrial Engineering, Yonsei University\\
+\href{mailto:yeoneung@yonsei.ac.kr}{yeoneung@yonsei.ac.kr}
+
+\end{document}

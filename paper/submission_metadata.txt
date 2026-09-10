@@ -1,0 +1,11 @@
+Title
+
+Completion-aware search with partial witness repair for dense fixed-shape facility layout
+
+Abstract
+
+Dense fixed-shape facility layout requires search decisions that preserve room for the remaining facilities. We study how a verified feasible layout can guide subsequent construction under a fixed time budget. Our completion-aware search maintains a compatible completion witness and repairs only the witness facilities displaced by each proposed placement. Unaffected rectangles are reused, and an independent verifier checks every complete candidate before it can update the best layout. The main study compares partial repair with full completion regeneration and a validation-selected adaptive large neighborhood search on 240 instances with 32 to 256 facilities, two geometry families, and fill ratios 0.90 and 0.95. The common initializer succeeds on 236 instances, yielding 2,124 runs with three seeds per method. At fill 0.95, partial repair exceeds the adaptive repair control by 3.45 to 5.91 percentage points in initial-objective improvement at 10 seconds and 1.68 to 4.12 points at 60 seconds. With 256 facilities at this fill, partial repair improves the initial objective by 7.66% at 10 seconds, compared with 4.76% for full regeneration. At 60 seconds, full regeneration leads with 10.38%, compared with 8.58% for partial repair. A separate one-second comparison isolates the contribution of repair beyond unchanged witness reuse. These results support partial witness repair for early improvement of dense layouts and show how its benefit depends on problem size, packing density, and the available time.
+
+Keywords
+
+Facility layout; Completion repair; Fortified rollout; Large neighborhood search; Feasibility verification; Anytime search

@@ -1,0 +1,24 @@
+Third-party LaTeX files retained for compilation, unmodified.
+
+elsarticle.cls, version 3.4 (2024-04-04)
+Copyright Elsevier, 2007-2024. LaTeX Project Public License 1.3 or later.
+Complete source and documentation:
+https://ctan.org/pkg/elsarticle
+Publisher template:
+https://www.elsevier.com/researcher/author/policies-and-guidelines/latex-instructions
+
+apa.bbx, apa.cbx, apa.dbx, apa.lua, american-apa.lbx, english-apa.lbx
+biblatex-apa, version 9.20. Maintainer: Philip Kime.
+LaTeX Project Public License 1.3c.
+Complete source, license notices and documentation:
+https://ctan.org/pkg/biblatex-apa
+https://mirrors.ctan.org/macros/latex/contrib/biblatex-contrib/biblatex-apa.zip
+
+csquotes.sty, csquotes.def, csquotes.cfg, csq-compat.def
+Copyright Philipp Lehman (2003-2011) and Joseph Wright (2015-2019,
+2021, 2022, 2024, 2026). LaTeX Project Public License 1.3c or later.
+Complete source, license notices and documentation:
+https://ctan.org/pkg/csquotes
+https://mirrors.ctan.org/macros/latex/contrib/csquotes.zip
+
+License text: https://www.latex-project.org/lppl/
