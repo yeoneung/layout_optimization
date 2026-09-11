@@ -16,6 +16,7 @@ __pycache__/
 
 # Manuscript and submission documents are maintained locally, not published here.
 /paper/
+/CITATION.cff
 
 # Local packaging and excluded preliminary experiment runs
 /code_submission.zip
