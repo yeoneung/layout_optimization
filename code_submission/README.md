@@ -59,33 +59,33 @@ Main text:
 | Item | Script(s) | Result file |
 |---|---|---|
 | Main method table (B0--B3/B2S/M0/R0/M1/ALNS) | `completion_search.py`, `repair_baseline.py` | method definitions for the two matched-time studies |
-| Supplement S11 (datasets and policy coverage) | `bench.py`, training and evaluation scripts listed below | generated suite seeds, checkpoints and result files throughout the archive |
+| Supplement S12 (datasets and policy coverage) | `bench.py`, training and evaluation scripts listed below | generated suite seeds, checkpoints and result files throughout the archive |
 | Main Table 2 (10/60-second contrasts) | `run_extended_study.py`, `analyze_extended_study.py`, `render_extended_paper.py` | `../../results/completion_extension_full_cpu/test/summary.json` and adjacent audit/CSV files |
 | Figure 1 (128/256-facility quality curves) | `render_extended_paper.py` | `paper/figs/fig_extended_anytime.pdf` from the same audited summary |
-| One-second dense mechanism study, Supplement S9 | `run_completion_comparison.py`, `merge_completion_results.py`, `analyze_completion_comparison.py`, `audit_completion_results.py` | `completion_comparison_dense50.json`, `completion_comparison_dense50_summary.json`, `completion_comparison_dense50_audit.json` |
+| One-second dense mechanism study, Supplement S2 | `run_completion_comparison.py`, `merge_completion_results.py`, `analyze_completion_comparison.py`, `audit_completion_results.py` | `completion_comparison_dense50.json`, `completion_comparison_dense50_summary.json`, `completion_comparison_dense50_audit.json` |
 | Main small-instance CP-SAT table | `export_exact.py`, `exact_cpsat.py`, `audit_exact_results.py` (exact env), `run_exact_cells.py`, `exact_report.py` | `exact_specs_full.json`, `exact_results_full.json`, `exact_results_audited.json`, `exact_cells_heur.json` |
-| Fill 0.90 boundary, Supplement S9 | same comparison and audit scripts as the dense table, disjoint tag | `completion_comparison_boundary80.json`, `completion_comparison_boundary80_summary.json`, `completion_comparison_boundary80_audit.json` |
-| Supplement S12 (training runs) | `train_construct.py`, `train_improve.py`, `viability_net.py` | checkpoints and histories in `runs/` |
+| Fill 0.90 boundary, Supplement S2 | same comparison and audit scripts as the dense table, disjoint tag | `completion_comparison_boundary80.json`, `completion_comparison_boundary80_summary.json`, `completion_comparison_boundary80_audit.json` |
+| Supplement S13 (training runs) | `train_construct.py`, `train_improve.py`, `viability_net.py` | checkpoints and histories in `runs/` |
 
 Online Supplement:
 
 | Item | Script(s) | Result file |
 |---|---|---|
-| S1 zero-shot transfer | `compare_transfer.py`, `run_transfer_greedy.py` | `transfer.json` |
-| S2 quality-diversity | `run_qd.py`, `qd_policies.py`, `run_qd_greedy.py`, `run_qd_greedy_sweep.py` | `qd_comb_high.json`, `qd_policies.json`, `qd_greedy_sweep.json` |
-| S3 amortized cost | `sa_scaling.py` + training histories in `runs/` | `sa_scaling.json` |
-| S4 action granularity | `run_action_axis.py`, `run_track_ac.py` | `compare_action_axis.json` |
-| S5 full improvement ablation | `run_track_ac.py`, `compare_main.py` | `compare_improve.json` |
-| S6 certificate gallery | `fig_certificate.py` | `figs/fig_gallery.pdf` |
-| S7 MCNC/GSRC conversion | `run_fp.py` | `fp_results.json` |
-| S8 larger-instance feasibility | `run_bigbench.py` | `bigbench.json`, `bigbench30.json` |
-| S9 one-second results | `run_completion_comparison.py`, `analyze_completion_comparison.py`, `audit_completion_results.py` | the dense and boundary comparison, summary and audit files above |
-| S13 60-second comparison and Figure S4 | `run_extended_study.py`, `analyze_extended_study.py`, `render_extended_paper.py` | `../../results/completion_extension_full_cpu/` |
-| S10 feasible volume | `feasible_volume.py` | `feasible_volume.json` |
-| S10 improvement-MDP ablation | `train_improve.py`, `compare_main.py` | `compare_improve.json`, `compare_comb_high.json` |
-| S10 certificate comparisons and coverage | `run_constructive_search.py`, `run_certified_study.py`, `analyze_certified_study.py`, `witness_gap.py`, `witness_frontier.py`, `exact_pack.py` (exact env) | `constr_search.json`, `certified_study.json`, `certified_study_summary.json`, `witness_gap.json`, `witness_frontier.json`, `exact_pack.json` |
-| S10 certified selectors and best-contact witness | `certified_greedy.py`, `certified_contact.py` | `certified_greedy.json`, `certified_contact.json` |
-| S10 learned-filter diagnostics | `viability_data.py`, `viability_net.py`, `run_viability.py`, `run_learned_cert.py` | `viability_train.npz`, `runs/viability_net.pt`, `viability_area.json`, `learned_cert.json` |
+| S1 60-second comparison and Figure S1 | `run_extended_study.py`, `analyze_extended_study.py`, `render_extended_paper.py` | `../../results/completion_extension_full_cpu/` |
+| S2 one-second results | `run_completion_comparison.py`, `analyze_completion_comparison.py`, `audit_completion_results.py` | the dense and boundary comparison, summary and audit files above |
+| S3 zero-shot transfer | `compare_transfer.py`, `run_transfer_greedy.py` | `transfer.json` |
+| S4 quality-diversity | `run_qd.py`, `qd_policies.py`, `run_qd_greedy.py`, `run_qd_greedy_sweep.py` | `qd_comb_high.json`, `qd_policies.json`, `qd_greedy_sweep.json` |
+| S5 amortized cost | `sa_scaling.py` + training histories in `runs/` | `sa_scaling.json` |
+| S6 action granularity | `run_action_axis.py`, `run_track_ac.py` | `compare_action_axis.json` |
+| S7 reward and action ablation | `run_track_ac.py`, `compare_main.py` | `compare_improve.json` |
+| S8 completion checks on a dense instance | `fig_certificate.py` | `figs/fig_gallery.pdf` |
+| S9 MCNC/GSRC conversion | `run_fp.py` | `fp_results.json` |
+| S10 larger-instance feasibility | `run_bigbench.py` | `bigbench.json`, `bigbench30.json` |
+| S11 feasible volume | `feasible_volume.py` | `feasible_volume.json` |
+| S11 improvement-MDP ablation | `train_improve.py`, `compare_main.py` | `compare_improve.json`, `compare_comb_high.json` |
+| S11 certificate comparisons and coverage | `run_constructive_search.py`, `run_certified_study.py`, `analyze_certified_study.py`, `witness_gap.py`, `witness_frontier.py`, `exact_pack.py` (exact env) | `constr_search.json`, `certified_study.json`, `certified_study_summary.json`, `witness_gap.json`, `witness_frontier.json`, `exact_pack.json` |
+| S11 certified selectors and best-contact witness | `certified_greedy.py`, `certified_contact.py` | `certified_greedy.json`, `certified_contact.json` |
+| S11 learned-filter diagnostics | `viability_data.py`, `viability_net.py`, `run_viability.py`, `run_learned_cert.py` | `viability_train.npz`, `runs/viability_net.pt`, `viability_area.json`, `learned_cert.json` |
 
 Other archived diagnostics summarized in the main text:
 
@@ -108,7 +108,7 @@ unchanged by `run_learned_cert.py` on the test split.
 
 ## Policy labels and checkpoint files
 
-The training table in Supplement S12 uses descriptive policy labels. The table below maps those labels to
+The training table in Supplement S13 uses descriptive policy labels. The table below maps those labels to
 the files under `rl_layout/experiments/runs/`. For each policy checkpoint,
 the corresponding `_history.json` file records its training run, where present.
 The completion predictor stores its training metadata in the checkpoint.
@@ -124,7 +124,7 @@ The completion predictor stores its training metadata in the checkpoint.
 | Completion predictor | `viability_net.pt` |
 
 The improvement-MDP labels A0, A0', A1, A2, C1 and C1' are configuration IDs
-shared with the ablation in Supplement S5, rather than descriptive policy names.
+shared with the ablation in Supplement S7, rather than descriptive policy names.
 Their definitions and individual results are retained in that table and in
 `compare_improve.json` and `compare_action_axis.json`.
 
@@ -204,7 +204,7 @@ Test completion is established by `test/complete.json` and a passing
 The test completed all 2,124 expected runs on 236 of 240 attempted instances.
 All 17,228 saved layouts passed independent verification, with zero objective
 recomputation error. The four initialization failures remain in the coverage
-denominator. Main-text Table 2 and Figure 1 use this study; Supplement S13
+denominator. Main-text Table 2 and Figure 1 use this study; Supplement S1
 contains its configuration selection, coverage, geometry-specific quality,
 full quality curves, target-time summaries, and timing checks.
 

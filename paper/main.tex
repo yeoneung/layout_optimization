@@ -168,7 +168,7 @@ and when full regeneration produces a better layout.
 
 \item \textbf{Verification and correctness checks.} We state the feasible
 continuation invariant as an attributed specialization of fortified rollout,
-use an independent final verifier, and add adversarial regression tests. For the
+use an independent final verifier, and test it on adversarial layouts. For the
 small CP-SAT study, we distinguish optimality of the scaled integer model from
 the real-valued objective and transfer solver bounds with an explicit rounding
 allowance.
@@ -245,7 +245,7 @@ draw walls sequentially, \citet{Ikeda2022FacilityRL} deploy units constructively
 illustrate is the range of choices for actions and geometric constraints.
 Our secondary single-facility translation MDP is closest to
 \citet{Heinbach2023MDPRL}; its reward and feasibility diagnostics appear in the
-Online Supplement, S5 and S10. The proposed M1 method uses exact marginal
+Online Supplement, S7 and S11. The proposed M1 method uses exact marginal
 ranking and requires no policy training.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -280,7 +280,7 @@ boundary bonus when facility $i$ is flush against a wall it prefers. Distances
 are center to center with each rectangle's directional radius removed, and are
 normalized per pair by the largest separation the plate permits, so $c_{ij}$ is
 scale free. The full expressions are reproduced in \ref{app:objective}, and the
-reference implementation is included in the reproducibility archive.
+objective evaluator is included in the reproducibility archive.
 
 The constant $\beta_{\max}$ is the no-overlap bonus used by the evaluator. It
 does not change rankings or raw paired differences within an instance, but it
@@ -293,17 +293,14 @@ $\beta_{\max}$ is replaced by a graded overlap bonus. Our analysis treats
 Eq.~\eqref{eq:objective} on $\cF$ as the optimization problem and the off-feasible
 penalty and graded bonus as components of the penalty-based improvement MDP.
 
-\subsection{Scenarios and verification}
-Two manually defined scenarios with $32$ facilities are used for calibration against the
-reference implementation: \textsc{office} ($36\times24$, fill ratio $0.54$) and \textsc{clinic}
-($28\times16$, fill $0.68$). One vectorized implementation of
-Eq.~\eqref{eq:objective} serves every method in the scenario and generated suite
-experiments. It agrees with the
-reference scenario code to $0.0$ absolute error on random, lattice aligned,
-heavily overlapping layouts and layouts flush against a wall, for both scenarios and both sign
-conventions. The annealing baseline reproduces its reported value of
-$3\,270.0$ to within $0.1$, obtaining $3\,269.9$. These checks establish a common
-objective implementation for the search comparisons.
+\subsection{Common objective evaluation}
+Every method in the scenario and generated-suite experiments uses the same
+vectorized evaluator of Eq.~\eqref{eq:objective}. Its numerical agreement with
+the reference scenario evaluator is checked on two manually defined
+$32$-facility scenarios: \textsc{office} ($36\times24$, fill ratio $0.54$) and
+\textsc{clinic} ($28\times16$, fill $0.68$). The checks cover random, lattice
+aligned, heavily overlapping, and wall-flush layouts under both affinity sign
+conventions. The absolute difference is $0.0$ in all checked cases.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -572,13 +569,13 @@ ALNS & adaptive destroy and repair & weighted removal and insertion operators; s
 \end{table}
 
 
-Coverage is shared through the common initializer. The selector comparison
-separates the witness's feasibility safeguard from the selector's effect on
-objective quality. An exact marginal selector matched or exceeded the learned
-selector. We therefore use a
-common best-contact initializer and training-free selectors in the primary
-comparison. Selected witness-frontier and selector diagnostics are reported in
-the Online Supplement, with complete tables in the reproducibility archive.
+The primary comparison uses a common best-contact initializer and requires
+no policy training. M0 and M1 rank candidates by exact marginal objective
+gain. Supporting full-regeneration tests separate the witness's feasibility
+safeguard from the selector's effect on quality: exact marginal ranking
+matches or exceeds the learned selectors in most $n=64$ cells. The Online
+Supplement reports initialization coverage and selector comparisons, with
+complete results in the reproducibility archive.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Experimental design}
@@ -626,7 +623,7 @@ The separate one-second study uses 200 attempted instances at fill 0.95 and
 80 at fill 0.90, crossing $n\in\{32,64\}$ with both geometries. Its instance
 tags and timing records are kept separate from the 60-second study.
 The generator also supplies small instances for objective calibration and
-secondary construction studies described in the Online Supplement, S11.
+secondary construction studies described in the Online Supplement, S12.
 
 Plate aspect ratio, facility types, affinities and boundary preferences vary
 by instance. The three randomized objective constants are drawn once per suite
@@ -654,7 +651,7 @@ facilities and uses beam width four and four ranked positions, adding an
 original position when legal. Its validation improvement is 7.80\%, compared
 with 5.83\% for B2 and 6.99\% for B2S. Test results do not enter this selection.
 The full operator rules and configuration comparison are in the Online
-Supplement, S13.
+Supplement, S1.
 
 \subsection{One-second mechanism study}
 The dense study uses 50 attempted instances per geometry and size cell at
@@ -677,7 +674,7 @@ The principal methods are defined in Table~\ref{tab:sharedmethods}. Secondary
 studies compare annealing, tabu search, a genetic algorithm, greedy and regret
 insertion, beam search, and learned constructors. Their settings, dataset
 coverage and statistical protocols are collected in the Online Supplement,
-S11; policy architecture and training costs are in S12. These diagnostics do
+S12; policy architecture and training costs are in S13. These diagnostics do
 not enter the primary paired comparison.
 
 \subsection{Cost accounting}
@@ -725,7 +722,7 @@ In the one-second study, 5,000 paired instance-bootstrap samples are used.
 Its dense contrast is M1 minus B1 at one second; R0, B2S, and M0 isolate
 reuse, repair scale, and regeneration. The fixed practical-effect threshold
 is one percent of the initial objective. The two studies are analyzed separately.
-Protocols for the secondary comparisons are in the Online Supplement, S11.
+Protocols for the secondary comparisons are in the Online Supplement, S12.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results}
@@ -788,7 +785,7 @@ for M0, 20.00\% for M1, and zero for ALNS, pooling the two geometries.
 Their restricted mean search times are 39.15, 51.74, and 60.00 seconds.
 Thus M1's early quality advantage does not imply faster attainment of a
 larger improvement target. Geometry-specific quality and coverage,
-pooled target times, and complete quality curves are in the Online Supplement, S13.
+pooled target times, and complete quality curves are in the Online Supplement, S1.
 
 \subsection{What partial repair contributes}
 \label{sec:sharedresult}
@@ -799,7 +796,7 @@ reuse without repair (R0), spatial repair (B2), and small spatial repair
 (B2S) are 6.39, 7.02, and 6.33 points, respectively. M1 improves the
 initial objective by 7.98\% to 9.65\% across the four geometry and size
 cells, compared with 1.72\% to 4.44\% for B1. Detailed budget tables
-are in the Online Supplement, S9.
+are in the Online Supplement, S2.
 
 Successful nonempty repairs account for 6,215 incumbent updates and 92\%
 of M1's logged objective gain, compared with 1,380 updates from unchanged
@@ -823,7 +820,7 @@ ratios are 0.979 to 0.981, and their medians are 0.997 for all three methods.
 The largest function-return overrun is 66.4 ms; completed candidates after the
 deadline are excluded. The one-second studies are audited separately, with
 8,820 dense and 5,214 boundary budget layouts verified. Detailed timing
-distributions are reported in S9 and S13.
+distributions are reported in S1 and S2.
 
 
 \subsection{Small-instance objective calibration}
@@ -894,17 +891,17 @@ QAPLIB objective require their own studies.
 \label{sec:results_scale}
 \label{sec:results_qap}
 \label{sec:results_mcnc}
-Four complementary studies clarify the role of completion handling and
-representation. First, unfiltered one-step construction
-loses completion reliability as fill approaches 0.95; this motivated explicit
-completion handling. Second, constructor feasibility experiments up to 256 facilities complement
-the direct M1 quality evaluation in Section~\ref{sec:extendedresults}. Third, QAPLIB favors swap improvement when geometric
-feasibility is absent, under its own objective. Fourth, tests on integer-converted
-MCNC/GSRC floorplans identify limits of direct lattice construction. Conversion
-changes rectangle geometry and dead space, so these results are not directly
-comparable with published full-resolution floorplans. Selected tables are in
-the Online Supplement and the complete diagnostic record is in the archive.
-The primary evidence for M1 remains the matched-time comparison.
+Secondary studies examine completion reliability and representation limits.
+Unfiltered one-step construction loses completion reliability as fill approaches
+0.95, showing the limits of local legality checks. Constructor feasibility tests
+up to 256 facilities complement M1's quality evaluation in
+Section~\ref{sec:extendedresults}. Under the QAPLIB objective, swap improvement
+performs well when geometric feasibility constraints are absent. Tests on
+integer-converted MCNC/GSRC floorplans assess direct lattice construction;
+the conversion changes rectangle geometry and dead space, so the results
+cannot be compared directly with published full-resolution floorplans.
+Selected tables are in the Online Supplement and complete results are in the
+archive. These studies provide context for the primary matched-time comparison.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion}
@@ -1035,25 +1032,21 @@ repository details are provided separately to the editorial office.
 \fi
 
 \section*{Supplementary material}
-An Online Supplement contains four secondary experiments referenced from the
-text: zero shot transfer across briefs (S1), quality and diversity fronts for all
-three method families (S2), amortized training cost (S3) and the
-discrete and continuous action granularity comparison (S4), together with
-the full improvement formulation ablation (S5), a qualitative certificate
-gallery (S6), the complete MCNC/GSRC file conversion (S7) and the
-large instance feasibility record (S8). Full budget and mechanism tables for
-the one-second comparison are in S9, and additional formulation and certificate
-diagnostics are collected in S10. Secondary methods and dataset coverage are in
-S11, and policy architecture and training records are in S12. The 60-second
-study's adaptive repair configuration, coverage, complete quality curves,
-geometry-specific results, target times, and timing checks are in S13.
+The Online Supplement reports the primary 60-second comparison, including
+adaptive repair configuration, coverage, geometry-specific quality, target
+times, and timing checks (S1), followed by the one-second repair-mechanism
+study (S2). Secondary comparisons cover transfer, quality and diversity,
+amortized cost, reward and action configurations, completion checks, and
+constructor feasibility (S3 to S10). Feasibility, initialization, and selector
+comparisons are in S11; secondary methods and dataset coverage are in S12;
+policy architecture and training costs are in S13.
 
 \section*{Declaration of competing interests}
 The authors declare no conflicts of interest.
 
 \appendix
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Objective, in full}
+\section{Objective definition}
 \label{app:objective}
 \paragraph{Adjusted distance}
 Write $c_i$ for facility $i$'s center and $t=|\Delta y|/|\Delta x|$ for the
