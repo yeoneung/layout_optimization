@@ -61,7 +61,7 @@ Main text:
 | Main method table (B0--B3/B2S/M0/R0/M1/ALNS) | `completion_search.py`, `repair_baseline.py` | method definitions for the two matched-time studies |
 | Supplement S12 (datasets and policy coverage) | `bench.py`, training and evaluation scripts listed below | generated suite seeds, checkpoints and result files throughout the archive |
 | Main Table 2 (10/60-second contrasts) | `run_extended_study.py`, `analyze_extended_study.py`, `render_extended_paper.py` | `../../results/completion_extension_full_cpu/test/summary.json` and adjacent audit/CSV files |
-| Figure 1 (128/256-facility quality curves) | `render_extended_paper.py` | `paper/figs/fig_extended_anytime.pdf` from the same audited summary |
+| Figure 1 (128/256-facility quality curves) | `render_extended_paper.py` | generates `fig_extended_anytime.pdf` from the same audited summary |
 | One-second dense mechanism study, Supplement S2 | `run_completion_comparison.py`, `merge_completion_results.py`, `analyze_completion_comparison.py`, `audit_completion_results.py` | `completion_comparison_dense50.json`, `completion_comparison_dense50_summary.json`, `completion_comparison_dense50_audit.json` |
 | Main small-instance CP-SAT table | `export_exact.py`, `exact_cpsat.py`, `audit_exact_results.py` (exact env), `run_exact_cells.py`, `exact_report.py` | `exact_specs_full.json`, `exact_results_full.json`, `exact_results_audited.json`, `exact_cells_heur.json` |
 | Fill 0.90 boundary, Supplement S2 | same comparison and audit scripts as the dense table, disjoint tag | `completion_comparison_boundary80.json`, `completion_comparison_boundary80_summary.json`, `completion_comparison_boundary80_audit.json` |
@@ -95,8 +95,7 @@ Other archived diagnostics summarized in the main text:
 | QAPLIB control | `qap_bench.py`, `test_qap.py` | `qap_results.json` |
 
 `figures.py` reads the archived JSON files and writes the composite figures to
-`figs/`. The paper repository stores its submission copies under
-`paper/figs/`.
+`figs/`. The manuscript and other submission documents are distributed separately.
 
 Training (only needed to regenerate checkpoints): `train_construct.py`
 produced `runs/S_dord_seed{1,2}.pt` (n=32) and `runs/S64_seed{1,2}.pt` (n=64);
@@ -209,8 +208,10 @@ contains its configuration selection, coverage, geometry-specific quality,
 full quality curves, target-time summaries, and timing checks.
 
 `render_extended_paper.py` checks the audited summary, reproduces both quality
-figures, and prints a JSON object whose `tex` field is the source for
-`paper/extended_results.tex`. It does not modify experimental records:
+figures, and prints a JSON object whose `tex` field contains the manuscript
+result tables. It does not modify experimental records or require manuscript
+files. Create an output directory with a `figs/` subdirectory before running
+the renderer. The example below uses the local, untracked `paper/` directory:
 
 ```text
 python render_extended_paper.py --paper ../../../paper

@@ -14,6 +14,9 @@ __pycache__/
 *.bcf
 *.run.xml
 
+# Manuscript and submission documents are maintained locally, not published here.
+/paper/
+
 # Local packaging and excluded preliminary experiment runs
 /code_submission.zip
 /code_submission/results/completion_extension/

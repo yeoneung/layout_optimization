@@ -1,15 +1,15 @@
 # Completion-aware layout optimization
 
-This repository contains the submission manuscript and the complete reproducibility
-archive for **Completion-aware search with partial witness repair for dense
+This repository contains the code, data, and reproducibility archive for
+**Completion-aware search with partial witness repair for dense
 fixed-shape facility layout**.
 
 ## Contents
 
-- `paper/`: `main.tex`/`main.pdf`, `supplement.tex`/`supplement.pdf`,
-  bibliography, figures, and the separate `highlights.docx` file.
 - `code_submission/`: source code, benchmark files, trained checkpoints, raw
   result files, analysis scripts, and verification tests.
+
+The manuscript and other submission documents are distributed separately.
 
 The detailed mapping from manuscript tables and figures to scripts and result
 files is given in [`code_submission/README.md`](code_submission/README.md).
