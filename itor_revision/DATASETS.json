@@ -1,0 +1,159 @@
+{
+  "release": "itor-v1.0.0",
+  "repository": "yeoneung/layout_optimization",
+  "assets": [
+    {
+      "name": "alns_val.zip",
+      "phase": "alns_val",
+      "bytes": 26326702,
+      "sha256": "17da10874ad28ea835366106de49d05b21e5542a982ca985bacec41d9e4c8351",
+      "files": 2209,
+      "uncompressed_bytes": 156583975,
+      "url": "https://github.com/yeoneung/layout_optimization/releases/download/itor-v1.0.0/alns_val.zip"
+    },
+    {
+      "name": "pilot.zip",
+      "phase": "pilot",
+      "bytes": 55860005,
+      "sha256": "db2c463f9deab464321b899d325ef6b4354cd3fae11a3cc8bd8e85a08da7f85b",
+      "files": 430,
+      "uncompressed_bytes": 283126233,
+      "url": "https://github.com/yeoneung/layout_optimization/releases/download/itor-v1.0.0/pilot.zip"
+    },
+    {
+      "name": "train.zip",
+      "phase": "train",
+      "bytes": 122928010,
+      "sha256": "fb69815e640a2b10b2c2ff9076506be9c71e6e3cc7c6100cc853d77bf5c82afd",
+      "files": 873,
+      "uncompressed_bytes": 624959458,
+      "url": "https://github.com/yeoneung/layout_optimization/releases/download/itor-v1.0.0/train.zip"
+    },
+    {
+      "name": "test.zip",
+      "phase": "test",
+      "bytes": 1100324114,
+      "sha256": "38fa880643eaddf54948203a2eb579e7678ba5d2465992328bec0740a50100dd",
+      "files": 8031,
+      "uncompressed_bytes": 5713955723,
+      "url": "https://github.com/yeoneung/layout_optimization/releases/download/itor-v1.0.0/test.zip"
+    },
+    {
+      "name": "test_portfolio_pref.zip",
+      "phase": "test_portfolio_pref",
+      "bytes": 179822810,
+      "sha256": "d15a59ebf870a04fd7be7762274625abbfe3136e6ddb683b3eeff338b0748d10",
+      "files": 1659,
+      "uncompressed_bytes": 914047035,
+      "url": "https://github.com/yeoneung/layout_optimization/releases/download/itor-v1.0.0/test_portfolio_pref.zip"
+    },
+    {
+      "name": "test_nonadaptive.zip",
+      "phase": "test_nonadaptive",
+      "bytes": 295057125,
+      "sha256": "64bbff0dcf9b806f99f5e0acdbab54c51126c59d15c61b99de0e3615722bbb36",
+      "files": 3080,
+      "uncompressed_bytes": 1468108502,
+      "url": "https://github.com/yeoneung/layout_optimization/releases/download/itor-v1.0.0/test_nonadaptive.zip"
+    },
+    {
+      "name": "test_frozen.zip",
+      "phase": "test_frozen",
+      "bytes": 242571302,
+      "sha256": "c868e1574a5df0fea5855091e354b62dcf44f70668957487e5383d2861f045be",
+      "files": 2618,
+      "uncompressed_bytes": 1279794854,
+      "url": "https://github.com/yeoneung/layout_optimization/releases/download/itor-v1.0.0/test_frozen.zip"
+    },
+    {
+      "name": "test_alns.zip",
+      "phase": "test_alns",
+      "bytes": 81085886,
+      "sha256": "9425eae6a7857807a77fbb7dd4da237c7b3f1f7ddcd1e05d016445e77fb4c192",
+      "files": 1659,
+      "uncompressed_bytes": 398198135,
+      "url": "https://github.com/yeoneung/layout_optimization/releases/download/itor-v1.0.0/test_alns.zip"
+    },
+    {
+      "name": "test_flow.zip",
+      "phase": "test_flow",
+      "bytes": 530873183,
+      "sha256": "ec7fd6b09f1c0f7f369b2cb403b0491e54a98a5e28b16ff717d6c6166464c783",
+      "files": 2375,
+      "uncompressed_bytes": 2699424146,
+      "url": "https://github.com/yeoneung/layout_optimization/releases/download/itor-v1.0.0/test_flow.zip"
+    },
+    {
+      "name": "test_flow_portfolio.zip",
+      "phase": "test_flow_portfolio",
+      "bytes": 295657133,
+      "sha256": "9e9a4f4f112ff9591aef15c7db62ea36bd3b13aa193953417324ec51353d44bd",
+      "files": 1427,
+      "uncompressed_bytes": 1587418175,
+      "url": "https://github.com/yeoneung/layout_optimization/releases/download/itor-v1.0.0/test_flow_portfolio.zip"
+    },
+    {
+      "name": "test_flow_nonadaptive.zip",
+      "phase": "test_flow_nonadaptive",
+      "bytes": 165092400,
+      "sha256": "9f98abac57626c8b3432af421e15523aeb158ce6cf67e6c6d1ec324a843f4466",
+      "files": 1116,
+      "uncompressed_bytes": 885074498,
+      "url": "https://github.com/yeoneung/layout_optimization/releases/download/itor-v1.0.0/test_flow_nonadaptive.zip"
+    },
+    {
+      "name": "test_obstacles.zip",
+      "phase": "test_obstacles",
+      "bytes": 211815402,
+      "sha256": "a70d7371a7cae64ac93dc2a5616abb0783ebcf5d2a2579967ddb9260b61cd99e",
+      "files": 1161,
+      "uncompressed_bytes": 1170497565,
+      "url": "https://github.com/yeoneung/layout_optimization/releases/download/itor-v1.0.0/test_obstacles.zip"
+    },
+    {
+      "name": "test_lrn32.zip",
+      "phase": "test_lrn32",
+      "bytes": 110846298,
+      "sha256": "646817adb9ea26a74b42d7fc3466ebdab0f4f50c79080286cee83ea7a1e8a538",
+      "files": 735,
+      "uncompressed_bytes": 565472838,
+      "url": "https://github.com/yeoneung/layout_optimization/releases/download/itor-v1.0.0/test_lrn32.zip"
+    },
+    {
+      "name": "test_lrn64.zip",
+      "phase": "test_lrn64",
+      "bytes": 54226726,
+      "sha256": "879f153b4c6dd78ae6ea9ffa49111778d217f5940a24de06a6b0c608a7b6a25c",
+      "files": 783,
+      "uncompressed_bytes": 266048967,
+      "url": "https://github.com/yeoneung/layout_optimization/releases/download/itor-v1.0.0/test_lrn64.zip"
+    },
+    {
+      "name": "test_lrn128.zip",
+      "phase": "test_lrn128",
+      "bytes": 17354289,
+      "sha256": "4bb7faeb6c41217406308f528cfb8dd7382bff78bd1d2ed3b9d3f696b101e2ed",
+      "files": 603,
+      "uncompressed_bytes": 78502203,
+      "url": "https://github.com/yeoneung/layout_optimization/releases/download/itor-v1.0.0/test_lrn128.zip"
+    },
+    {
+      "name": "test_lrn256.zip",
+      "phase": "test_lrn256",
+      "bytes": 8362673,
+      "sha256": "43de1f9c0b5ecb245012b5c322e96c96ef7bee3ef2024b573a96a000460f21aa",
+      "files": 603,
+      "uncompressed_bytes": 38073754,
+      "url": "https://github.com/yeoneung/layout_optimization/releases/download/itor-v1.0.0/test_lrn256.zip"
+    },
+    {
+      "name": "policies.zip",
+      "phase": "policies",
+      "bytes": 12664104,
+      "sha256": "efb0c1d64bd69de76086645e7a16962961908d7a8ae11e624f2c5dc98b9c229e",
+      "files": 8,
+      "uncompressed_bytes": 14014285,
+      "url": "https://github.com/yeoneung/layout_optimization/releases/download/itor-v1.0.0/policies.zip"
+    }
+  ]
+}

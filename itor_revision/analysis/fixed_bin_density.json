@@ -1,0 +1,63 @@
+{
+  "method": "BANDITP3:8",
+  "runs": 708,
+  "rounds": 123428,
+  "bins_s": [
+    [
+      0,
+      20
+    ],
+    [
+      20,
+      40
+    ],
+    [
+      40,
+      60
+    ]
+  ],
+  "operators": {
+    "partial_repair": [
+      {
+        "rounds": 14132,
+        "mean_density": 2.8933398821348675
+      },
+      {
+        "rounds": 13621,
+        "mean_density": 0.04479541205821665
+      },
+      {
+        "rounds": 13714,
+        "mean_density": 0.01884951569423283
+      }
+    ],
+    "regeneration": [
+      {
+        "rounds": 13747,
+        "mean_density": 0.49994823298535673
+      },
+      {
+        "rounds": 13633,
+        "mean_density": 0.008265743978502237
+      },
+      {
+        "rounds": 13664,
+        "mean_density": 0.004183026779004819
+      }
+    ],
+    "destroy_and_repair": [
+      {
+        "rounds": 13545,
+        "mean_density": 0.948794900091966
+      },
+      {
+        "rounds": 13667,
+        "mean_density": 0.1296689878683244
+      },
+      {
+        "rounds": 13705,
+        "mean_density": 0.06575754592102419
+      }
+    ]
+  }
+}

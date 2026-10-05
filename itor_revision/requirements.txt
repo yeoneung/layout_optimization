@@ -1,0 +1,8 @@
+# Packaging/test environment: Python 3.12.10. CPU PyTorch is sufficient for audits.
+numpy==2.5.2
+psutil==7.2.2
+matplotlib==3.11.1
+pandas==3.0.5
+scipy==1.18.0
+scikit-learn==1.9.0
+torch==2.11.0

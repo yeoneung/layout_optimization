@@ -1,0 +1,179 @@
+{
+  "prepared_date": "2026-10-05",
+  "correctness_checks": {
+    "test_methods_ext.py (including RR3 and RND3)": "passed",
+    "test_flow_objective.py": "passed",
+    "test_constraints.py": "passed",
+    "test_learned_methods.py": "passed"
+  },
+  "frozen_reaudit": {
+    "passed": true,
+    "sources_checked": true,
+    "runs": 2370,
+    "verified_saved_layouts": 19197,
+    "max_objective_error": 0.0,
+    "protocol_sha256": "5b7871dcd8b88cc94c41c9c9fdf7db2dd991b85dbc4747d9ecf2ac3134a7ca36",
+    "results_manifest_sha256": "8c113e1f75e578bc9bbf6f34686a06abc02334a7de0770151d153a97b66be1e3"
+  },
+  "frozen_reaudit_matches_original": true,
+  "pooled16_reanalysis": {
+    "complete_instances": 236,
+    "runs": 11328,
+    "bootstrap_replicates": 10000,
+    "csv_checks": {
+      "quality.csv": {
+        "rows": 1024,
+        "exact_match": true
+      },
+      "oracle.csv": {
+        "rows": 1024,
+        "exact_match": true
+      },
+      "schedule.csv": {
+        "rows": 80,
+        "exact_match": true
+      },
+      "contrasts.csv": {
+        "rows": 4800,
+        "exact_match": true
+      }
+    }
+  },
+  "fixed_bin_density": {
+    "runs": 708,
+    "rounds": 123428,
+    "all_nine_rounded_means_match_manuscript": true
+  },
+  "original_phase_source_checks": {
+    "alns_val": {
+      "matches_current_sources": false,
+      "differing_keys": [
+        "EAAI/learned_methods.py",
+        "EAAI/methods_ext.py"
+      ]
+    },
+    "pilot": {
+      "matches_current_sources": false,
+      "differing_keys": [
+        "EAAI/alns_configs.py",
+        "EAAI/constraints.py",
+        "EAAI/flow_objective.py",
+        "EAAI/learned_methods.py",
+        "EAAI/methods_ext.py",
+        "EAAI/run_eaai_study.py"
+      ]
+    },
+    "test": {
+      "matches_current_sources": false,
+      "differing_keys": [
+        "EAAI/alns_configs.py",
+        "EAAI/constraints.py",
+        "EAAI/flow_objective.py",
+        "EAAI/learned_methods.py",
+        "EAAI/methods_ext.py",
+        "EAAI/run_eaai_study.py"
+      ]
+    },
+    "test_alns": {
+      "matches_current_sources": false,
+      "differing_keys": [
+        "EAAI/learned_methods.py",
+        "EAAI/methods_ext.py"
+      ]
+    },
+    "test_flow": {
+      "matches_current_sources": false,
+      "differing_keys": [
+        "EAAI/alns_configs.py",
+        "EAAI/constraints.py",
+        "EAAI/learned_methods.py",
+        "EAAI/methods_ext.py",
+        "EAAI/run_eaai_study.py"
+      ]
+    },
+    "test_flow_nonadaptive": {
+      "matches_current_sources": true,
+      "differing_keys": []
+    },
+    "test_flow_portfolio": {
+      "matches_current_sources": false,
+      "differing_keys": [
+        "EAAI/learned_methods.py",
+        "EAAI/methods_ext.py"
+      ]
+    },
+    "test_frozen": {
+      "matches_current_sources": true,
+      "differing_keys": []
+    },
+    "test_lrn128": {
+      "matches_current_sources": false,
+      "differing_keys": [
+        "EAAI/methods_ext.py"
+      ]
+    },
+    "test_lrn256": {
+      "matches_current_sources": false,
+      "differing_keys": [
+        "EAAI/methods_ext.py"
+      ]
+    },
+    "test_lrn32": {
+      "matches_current_sources": false,
+      "differing_keys": [
+        "EAAI/alns_configs.py",
+        "EAAI/constraints.py",
+        "EAAI/flow_objective.py",
+        "EAAI/learned_methods.py",
+        "EAAI/methods_ext.py",
+        "EAAI/run_eaai_study.py"
+      ]
+    },
+    "test_lrn64": {
+      "matches_current_sources": false,
+      "differing_keys": [
+        "EAAI/alns_configs.py",
+        "EAAI/constraints.py",
+        "EAAI/flow_objective.py",
+        "EAAI/learned_methods.py",
+        "EAAI/methods_ext.py",
+        "EAAI/run_eaai_study.py"
+      ]
+    },
+    "test_nonadaptive": {
+      "matches_current_sources": true,
+      "differing_keys": []
+    },
+    "test_obstacles": {
+      "matches_current_sources": false,
+      "differing_keys": [
+        "EAAI/learned_methods.py",
+        "EAAI/methods_ext.py"
+      ]
+    },
+    "test_portfolio_pref": {
+      "matches_current_sources": false,
+      "differing_keys": [
+        "EAAI/learned_methods.py",
+        "EAAI/methods_ext.py"
+      ]
+    },
+    "train": {
+      "matches_current_sources": false,
+      "differing_keys": [
+        "EAAI/alns_configs.py",
+        "EAAI/constraints.py",
+        "EAAI/flow_objective.py",
+        "EAAI/learned_methods.py",
+        "EAAI/methods_ext.py",
+        "EAAI/run_eaai_study.py"
+      ]
+    }
+  },
+  "release_archives": {
+    "count": 17,
+    "crc_checks": "all passed",
+    "sha256_manifest": "DATASETS.json"
+  },
+  "scope": "Existing correctness checks, a fresh stored-layout audit and analysis recomputation; not new comparative search runs."
+}

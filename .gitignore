@@ -29,3 +29,9 @@ __pycache__/
 Thumbs.db
 .idea/
 .vscode/
+
+# EAAI revision track: local until the study is complete
+/EAAI/
+
+# Independent ITOR manuscript package: maintained locally.
+/ITOR_submission/

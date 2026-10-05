@@ -1,18 +1,28 @@
-# Completion-aware layout optimization
+# Dense facility layout: completion-aware search and operator portfolios
 
-This repository contains the code, data, and reproducibility archive for
-**Completion-aware search with partial witness repair for dense
-fixed-shape facility layout**.
+This repository contains code, generated data and reproducibility materials
+for dense fixed-shape facility layout under a time budget.
 
-## Contents
+- **Current ITOR revision:** [operator portfolio archive](itor_revision/README.md),
+  with three matched selection rules, a frozen test suite, flow and obstacle
+  experiments, models, recorded protocols and analyzed results.
+- **Versioned raw results:** [itor-v1.0.0 release](https://github.com/yeoneung/layout_optimization/releases/tag/itor-v1.0.0).
+  Download individual phases using the checksummed [asset manifest](itor_revision/DATASETS.json).
+- **Precursor study:** [code_submission/](code_submission/README.md), containing
+  the original completion-aware search implementation and benchmark archive.
 
-- `code_submission/`: source code, benchmark files, trained checkpoints, raw
-  result files, analysis scripts, and verification tests.
+The ITOR revision studies **How much of a feasible layout to rebuild:
+certificate-preserving operator portfolios for dense facility layout under a
+time budget**. PORT3-R, PORT3-B and PORT3-U have the three best mean ranks in
+the sixteen-method adjacency comparison at 60 seconds. The tested bandit has
+no consistent advantage over matched cyclic rotation; dedicated ALNS generally
+remains stronger under material-flow cost. See the revision archive for the
+paired comparisons, limitations and exact reproduction commands.
 
-The manuscript and other submission documents are distributed separately.
-
-The detailed mapping from manuscript tables and figures to scripts and result
-files is given in [`code_submission/README.md`](code_submission/README.md).
+Manuscripts, cover letters and submission documents are maintained separately.
+The sections below describe the **precursor** study, *Completion-aware search
+with partial witness repair for dense fixed-shape facility layout*; they are
+not the enlarged ITOR comparison.
 
 ## Primary result files
 

@@ -1,0 +1,3 @@
+n,fill,method,runs,mean_first_M0_start_s,mean_M0_time_fraction,mean_reconstructions
+64,0.9,BANDIT:8,60,0.9195254633474784,0.28158236530258596,174.4
+64,0.95,BANDIT:8,120,0.9931003116730911,0.397735287958751,137.3
